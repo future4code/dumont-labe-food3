@@ -4,7 +4,7 @@ import { goToLoginPage } from '../../router/coordinator'
 import { InitialPageContainer, Title } from './styles'
 
 const InitialPage = () => {
-
+ 
     useEffect(()=>{
         setTimeout(RedirectToLogin, 6000);
     },[])

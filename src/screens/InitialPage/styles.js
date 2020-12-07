@@ -12,4 +12,4 @@ export const InitialPageContainer = styled.div `
 `
 export const Title = styled.h1 `
     color: white;
-`
+` 
