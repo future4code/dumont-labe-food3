@@ -1,7 +1,9 @@
 import {useEffect} from "react"
 import {useHistory} from "react-router-dom"
 
-function useUnprotectedPage(){
+
+function useUnProtectedPage(){
+
     const history = useHistory()
 
     useEffect(()=>{
@@ -12,4 +14,6 @@ function useUnprotectedPage(){
     })
 
 }
-export default useUnprotectedPage
+
+export default useUnProtectedPage
+
