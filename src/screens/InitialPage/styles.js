@@ -13,3 +13,8 @@ export const InitialPageContainer = styled.div `
 export const Title = styled.h1 `
     color: white;
 `
+export const Logo_FutureEats = styled.img `
+    width: 126px;
+    height: 65px;
+    object-fit: contain;
+`
