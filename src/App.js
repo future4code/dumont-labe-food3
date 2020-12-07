@@ -1,10 +1,12 @@
 import React from 'react';
+import Router from "./router/router"
+import GlobalState from "./global/globalState"
 
 function App() {
   return (
-    <div className="App">
-  
-    </div>
+  <GlobalState>
+  <Router/>
+  </GlobalState>
   );
 }
 
