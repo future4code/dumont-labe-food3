@@ -90,6 +90,7 @@ export const TextRegister = styled.p`
   letter-spacing: -0.39px;
   text-align: center;
   color: #000000;
+  cursor: pointer;
 `;
 
 
