@@ -1,11 +1,14 @@
 import React from 'react'
+import { HeaderContainer, PageTitle } from './styles'
 
 const Header = () => {
 
     return (
-        <div>
+        <HeaderContainer>
             <button>Voltar</button>
-            <p>Título da Página</p>
-        </div>
+            <PageTitle>Título da Página</PageTitle>
+        </HeaderContainer>
     )
 }
+
+export default Header
