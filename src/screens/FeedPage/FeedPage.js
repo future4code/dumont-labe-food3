@@ -13,7 +13,7 @@ const FeedPage = () => {
         Axios.get(`${baseUrl}/restaurants`,
         {
             headers:{
-                Authorization: localStorage.getItem("token")
+                auth: localStorage.getItem("token")
             }
         })
         .then((res)=>{
