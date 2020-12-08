@@ -1,10 +1,10 @@
 import axios from "axios"
 import {baseUrl} from "./constants"
-import { goToFeedPage, goToAdressPage } from "../router/coordinator"
+import { goToFeedPage, goToAdressPage, goToSignUpPage } from "../router/coordinator"
 
 const axiosConfig = {
   headers: {
-    Authorization: localStorage.getItem('token')
+    auth: localStorage.getItem('token')
   }
 }
 

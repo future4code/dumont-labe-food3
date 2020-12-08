@@ -15,7 +15,7 @@ return(
             <InitialPage />
         </Route>
         <Route exact path="/signup">
-        <SignupPage />
+            <SignupPage />
         </Route>
         <Route exact path="/login">
             <LoginPage />
