@@ -4,6 +4,8 @@ import { useForm } from '../../hooks/useForm'
 import { signUp } from '../../constants/user'
 import { goToAdressPage } from '../../router/coordinator'
 import useUnProtectedPage from '../../hooks/useUnprotectedPage'
+import { Bar, InputButton, InputSignUp, InputSignUpDiv, Logo_SignUp, SignUp, Title, TitleSignUp } from './styles'
+import SignUpLogo from '../../assets/img/logo-future-eats.png'
 
 const SignupPage = () => {
 
@@ -40,12 +42,21 @@ const SignupPage = () => {
       }
 
     return (
+        
+        <SignUp>
+            <Bar>
+            
+            </Bar>
 
-        <div>
+            <Logo_SignUp src={SignUpLogo} alt="logo da future eats" />
+            <TitleSignUp>
+                <Title>Cadastrar</Title>
+            </TitleSignUp>
 
             <form onSubmit={validate}>
 
-                <input
+                <InputSignUpDiv>
+                <InputSignUp
                     placeholder="Escreva seu nome completo"
                     name="name"
                     value={form.name}
@@ -54,7 +65,10 @@ const SignupPage = () => {
 
                 />
 
-                <input
+                </InputSignUpDiv>
+
+                <InputSignUpDiv>
+                <InputSignUp
                     placeholder="Digite seu email"
                     type="email"
                     name="email"
@@ -63,8 +77,9 @@ const SignupPage = () => {
                     required
 
                 />
-
-                <input
+                </InputSignUpDiv>
+                <InputSignUpDiv>
+                <InputSignUp
                     placeholder="Digite seu CPF"
                     pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})"
                     name="cpf"
@@ -73,8 +88,10 @@ const SignupPage = () => {
                     required
 
                 />
+                </InputSignUpDiv>
 
-                <input
+                <InputSignUpDiv>
+                <InputSignUp
                     placeholder="Crie uma senha"
                     type="password"
                     name="password"
@@ -83,8 +100,10 @@ const SignupPage = () => {
                     required
 
                 />
+                </InputSignUpDiv>
 
-                <input
+                <InputSignUpDiv>
+                <InputSignUp
                 placeholder="Confirme sua senha"
                 type="password"
                 name="confirmPassword"
@@ -93,16 +112,17 @@ const SignupPage = () => {
                 required
 
                 />
-
-                <button type="submit">Salvar</button>
-
+                </InputSignUpDiv>
+                <InputButton type="submit">Salvar</InputButton>
             </form>
 
+            
 
 
 
 
-        </div>
+
+        </SignUp>
     )
 
 }
