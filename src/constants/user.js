@@ -4,7 +4,7 @@ import { goToFeedPage, goToAdressPage,goToSignUpPage } from "../router/coordinat
 
 const axiosConfig = {
   headers: {
-    Authorization: localStorage.getItem('token')
+    auth: localStorage.getItem('token')
   }
 }
 
@@ -45,8 +45,8 @@ export const Address = (body, history) => {
   .put(`${baseUrl}/address`, body, axiosConfig)
 
   .then ((response)=>{
-    // localStorage.setItem('token', response.data.token)
-    alert("Endereço cadastro com sucesso!")
+    localStorage.setItem('token', response.data.token)
+    alert("Endereço cadastrado com sucesso!")
     goToFeedPage(history)
 
   })
