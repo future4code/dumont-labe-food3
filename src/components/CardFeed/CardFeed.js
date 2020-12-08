@@ -4,6 +4,7 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
+import { InfoContainer } from './styles'
 
 const CardFeed = () => {
 
@@ -20,8 +21,10 @@ const CardFeed = () => {
                 Vinil Butantã
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    <span>50-60 min</span>
-                    <span>Frete R$6,00</span>
+                    <InfoContainer>
+                        <p>50-60 min</p>
+                        <p>Frete R$6,00</p>
+                    </InfoContainer>
                 </Typography>
                 </CardContent>
             </CardActionArea>

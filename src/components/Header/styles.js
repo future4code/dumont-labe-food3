@@ -1,3 +1,4 @@
+import { Button } from '@material-ui/core'
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.div `
@@ -11,4 +12,10 @@ export const PageTitle = styled.p `
         font-family: 'Roboto', sans-serif;
         font-size: 16px;
     }
+`
+export const ButtonStyled = styled(Button) `
+    padding: 0;
+    margin: 0;
+    /* height: 20px;
+    width: 20px; */
 `
