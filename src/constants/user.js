@@ -39,7 +39,7 @@ export const Address = (body, history) => {
   .put(`${baseUrl}/address`, body, axiosConfig)
 
   .then ((response)=>{
-    localStorage.setItem('token', response.data.token)
+    // localStorage.setItem('token', response.data.token)
     alert("Endereço cadastro com sucesso!")
     goToFeedPage(history)
 
