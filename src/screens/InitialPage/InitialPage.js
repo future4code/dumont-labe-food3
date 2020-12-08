@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToLoginPage } from '../../router/coordinator'
-import { InitialPageContainer, Logo_FutureEats, Title } from './styles'
-import InitialLogo from '../../assets/img/logo-future-eats.png'
+import { InitialPageContainer } from './styles'
+import Loading from '../../components/Loading/Loading'
 
 const InitialPage = () => {
  
     useEffect(()=>{
-        setTimeout(RedirectToLogin, 6000);
+        setTimeout(RedirectToLogin, 4500);
     },[])
     
     const history = useHistory()
@@ -16,9 +16,9 @@ const InitialPage = () => {
     }
 
     return (
-        <InitialPageContainer>
-            <Logo_FutureEats src={InitialLogo} />
-        </InitialPageContainer>
+            <InitialPageContainer>
+                <Loading />
+            </InitialPageContainer>
     )
 }
 
