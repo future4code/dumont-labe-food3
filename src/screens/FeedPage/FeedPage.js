@@ -7,8 +7,11 @@ import CardFeed from '../../components/CardFeed/CardFeed'
 import { InputLabel, InputAdornment, OutlinedInput } from '@material-ui/core'
 import SearchIcon from '@material-ui/icons/Search'
 
+
 const FeedPage = () => {
+
     const [restaurants,setRestaurants] = useState([])
+
 
     useEffect(()=> {
         Axios.get(`${baseUrl}/restaurants`,

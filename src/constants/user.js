@@ -2,6 +2,7 @@ import axios from "axios"
 import {baseUrl} from "./constants"
 import { goToFeedPage, goToAdressPage, goToSignUpPage } from "../router/coordinator"
 
+
 const axiosConfig = {
   headers: {
     auth: localStorage.getItem('token')
@@ -12,13 +13,18 @@ export const login = (body, history) =>{
 axios.post(`${baseUrl}/login`, body)
 .then ((response)=>{
       localStorage.setItem('user', response.data.user)
-      localStorage.setItem('token', response.data.token)
+      
 
       if(response.data.user.hasAddress){
+        localStorage.setItem("token", response.data.token);
         goToFeedPage(history)
+
       }else{
-        goToSignUpPage(history)
+         localStorage.setItem("token", response.data.token);
+        goToAdressPage(history);
       }
+
+      
 
     }).catch(error=>{
       alert ("Deu ruim rapá!")
@@ -45,7 +51,7 @@ export const Address = (body, history) => {
   .put(`${baseUrl}/address`, body, axiosConfig)
 
   .then ((response)=>{
-    // localStorage.setItem('token', response.data.token)
+    localStorage.setItem('token', response.data.token)
     alert("Endereço cadastro com sucesso!")
     goToFeedPage(history)
 
