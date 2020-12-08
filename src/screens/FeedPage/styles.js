@@ -9,3 +9,7 @@ export const FeedPageContainer = styled.div `
     height: 640px;
     border: 1px black solid;
 `
+export const CardsContainer = styled.div `
+    height: 462px;
+    overflow: auto;
+`

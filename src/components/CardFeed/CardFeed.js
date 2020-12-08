@@ -4,26 +4,27 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
-import { InfoContainer } from './styles'
+import { InfoContainer, ImageRestaurant } from './styles'
 
-const CardFeed = () => {
+const CardFeed = (props) => {
 
     return (
         <div>
             <Card>
             <CardActionArea>
+                <ImageRestaurant src={props.image}/>
                 <CardMedia
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="Contemplative Reptile"
+                    image={props.image}
+                    title="Contemplative Reptile"
                 />
                 <CardContent>
                 <Typography gutterBottom variant="h6" component="h2">
-                Vinil Butantã
+                {props.name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                     <InfoContainer>
-                        <p>50-60 min</p>
-                        <p>Frete R$6,00</p>
+                        <p>{props.deliveryTime} min</p>
+                        <p>Frete R${props.shipping}</p>
                     </InfoContainer>
                 </Typography>
                 </CardContent>
