@@ -4,7 +4,7 @@ import { login } from "../../constants/user";
 import { useForm } from "../../hooks/useForm";
 import useUnProtectedPage from "../../hooks/useUnprotectedPage";
 import { goToSignUpPage } from "../../router/coordinator";
-import logo from "../../assets/img/logo-future-eats.png";
+import logo from "../../assets/img/logo-future-eats-invert.png";
 import {
   LoginContainer,
   Logo,
