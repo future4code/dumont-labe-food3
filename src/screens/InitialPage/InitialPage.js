@@ -5,7 +5,7 @@ import { InitialPageContainer, Logo_FutureEats, Title } from './styles'
 import InitialLogo from '../../assets/img/logo-future-eats.png'
 
 const InitialPage = () => {
-
+ 
     useEffect(()=>{
         setTimeout(RedirectToLogin, 6000);
     },[])
