@@ -6,7 +6,6 @@ export const InitialPageContainer = styled.div `
     align-items: center;
     width: 360px;
     height: 640px;
-    padding: 288px 117px 287px;
     background-color: #000000;
     margin: auto;
 `
