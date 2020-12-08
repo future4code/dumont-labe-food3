@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Bar = styled.div`
-    width: 360px;
+    width: 420px;
   height: 64px;
   margin: 0 0 24px;
   padding: 0 0 10px;
@@ -66,7 +66,7 @@ width: 328px;
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.39px;
-  color: #d0d0d0;
+  color: #000000;
 `
 export const InputButton = styled.button`
 width: 328px;
