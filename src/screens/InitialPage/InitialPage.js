@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { goToLoginPage } from '../../router/coordinator'
-import { InitialPageContainer, Title } from './styles'
+import { InitialPageContainer, Logo_FutureEats, Title } from './styles'
+import InitialLogo from '../../assets/img/logo-future-eats.png'
 
 const InitialPage = () => {
  
@@ -16,9 +17,7 @@ const InitialPage = () => {
 
     return (
         <InitialPageContainer>
-            <Title>
-                FutureEats
-            </Title>
+            <Logo_FutureEats src={InitialLogo} />
         </InitialPageContainer>
     )
 }

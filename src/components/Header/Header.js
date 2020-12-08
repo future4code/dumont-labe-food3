@@ -8,5 +8,4 @@ const Header = () => {
             <p>Título da Página</p>
         </div>
     )
-
 }

@@ -1,8 +1,11 @@
 import React from "react"
 import { useHistory } from "react-router-dom"
-import { login } from "../constants/user"
-import { useForm } from "../hooks/useForm"
-import { useUnProtectedPage } from "../hooks/useUnprotectedPage";
+import { login } from "../../constants/user"
+import { useForm } from "../../hooks/useForm"
+import  useUnProtectedPage  from "../../hooks/useUnprotectedPage";
+import {goToSignUpPage} from "../../router/coordinator"
+// import {LoginContainer} from "./styled"
+
 
 function LoginPage(){
 useUnProtectedPage();
@@ -40,7 +43,9 @@ const handleSubmit = (event)=>{
           <button> Entrar </button>
         </form>
 
-        <span>Não possui cadastro? Clique aqui!</span>
+        <span onClick={() => goToSignUpPage(history)}>
+          Não possui cadastro? Clique aqui!
+        </span>
       </div>
     );
 

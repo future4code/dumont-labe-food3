@@ -1,6 +1,7 @@
 import React from "react"
 import {BrowserRouter, Route, Switch} from "react-router-dom"
 import InitialPage from "../screens/InitialPage/InitialPage"
+import LoginPage from "../screens/loginPage/loginPage"
 
 
 function Router(){
@@ -14,6 +15,7 @@ return(
 
         </Route>
         <Route exact path="/login">
+            <LoginPage />
 
         </Route>
         <Route exact path="/feed">
