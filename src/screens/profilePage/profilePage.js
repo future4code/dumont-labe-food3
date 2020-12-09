@@ -4,7 +4,11 @@ import { baseUrl } from '../../constants/constants'
 import GlobalStateContext from '../../global/globalStateContext'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
+
 import { goToAdressPage, goToEditProfile, goToFeedPage } from '../../router/coordinator'
+
+import CardOrder from "../../components/CardOrder/cardOrder"
+
 
 const ProfilePage = () => {
 
@@ -15,6 +19,7 @@ const ProfilePage = () => {
     const history = useHistory()
 
     const profileInfo = useRequestData(`${baseUrl}/profile`, undefined)
+
 
 
 
@@ -40,6 +45,9 @@ const ProfilePage = () => {
                 </div>
 
                 <div>
+                       <div>
+          <CardOrder />
+        </div>
 
                 </div>
             </div>
@@ -53,6 +61,7 @@ const ProfilePage = () => {
 
 
     )
+
 
 
 }

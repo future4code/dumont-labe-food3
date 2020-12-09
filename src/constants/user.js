@@ -65,6 +65,7 @@ export const Address = (body, history) => {
 
 }
 
+
 export const UpdateProfile = (body, history) => {
 
   axios
@@ -80,3 +81,4 @@ export const UpdateProfile = (body, history) => {
     console.log(error.message)
   })
 }
+
