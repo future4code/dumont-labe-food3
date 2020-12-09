@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
-import { CardsContainer, FeedPageContainer, FilterContainer, InputContainer, InputStyled, LoadingContainer } from './styles'
+import { CardsContainer, FeedPageContainer, Filter, FilterContainer, InputContainer, InputStyled, LoadingContainer } from './styles'
 import { baseUrl } from '../../constants/constants'
 import CardFeed from '../../components/CardFeed/CardFeed'
 import LoadingInvert from '../../components/LoadingInvert/LoadingInvert'
@@ -53,15 +53,16 @@ const FeedPage = () => {
                     <InputStyled onChange={SearchFilter} placeholder="Restaurante"/>
                 </InputContainer>
                 <FilterContainer>
-                    <p>Árabe</p>
-                    <p>Asiática</p>
-                    <p>Baiana</p>
-                    <p>Carnes</p>
-                    {/* <p>Hamburguer</p>
-                    <p>Italiana</p>
-                    <p>Mexicana</p>
-                    <p>Sorvetes</p>
-                    <p>Petiscos</p> */}
+                    <Filter>Todos</Filter>
+                    <Filter>Árabe</Filter>
+                    <Filter>Asiática</Filter>
+                    <Filter>Baiana</Filter>
+                    <Filter>Carnes</Filter>
+                    <Filter>Hamburguer</Filter>
+                    <Filter>Italiana</Filter>
+                    <Filter>Mexicana</Filter>
+                    <Filter>Sorvetes</Filter>
+                    <Filter>Petiscos</Filter>
                 </FilterContainer>
                 <CardsContainer>
                     {restaurants.length===0

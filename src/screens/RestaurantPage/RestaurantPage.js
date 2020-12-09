@@ -1,9 +1,11 @@
 import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+import CardProduct from '../../components/CardProduct/CardProduct'
 import Header from '../../components/Header/Header'
 import { baseUrl } from '../../constants/constants'
-import { RestaurantPageContainer, ImageRestaurant } from './styles'
+import { RestaurantPageContainer, ImageRestaurant, RestaurantContainer, InfoContainer, InfoName, InfoText, ImageContainer, LoadingContainer, CardsContainer } from './styles'
+import LoadingInvert from '../../components/LoadingInvert/LoadingInvert'
 
 const RestaurantPage = () => {
     const history = useHistory()
@@ -29,17 +31,43 @@ const RestaurantPage = () => {
     function goBack() {
         window.history.back()
     }
-
+console.log(restaurantDetails.products)
     return (
         <RestaurantPageContainer>
             <Header goBack={goBack}/>
-            <div>
-                <ImageRestaurant src={restaurantDetails.logoUrl}/>
-                <p>{restaurantDetails.name}</p>
-                <p>{restaurantDetails.deliveryTime}</p>
-                <p>{restaurantDetails.shipping}</p>
-                <p>{restaurantDetails.address}</p>
-            </div>
+            {restaurantDetails.length===0
+                ?
+                <LoadingContainer>
+                    <LoadingInvert />
+                </LoadingContainer>
+                :
+                <CardsContainer>
+                    <RestaurantContainer>
+                        <ImageContainer>
+                            <ImageRestaurant src={restaurantDetails.logoUrl}/>
+                        </ImageContainer>
+                        <InfoName>{restaurantDetails.name}</InfoName>
+                        <InfoContainer>
+                            <InfoText>{restaurantDetails.deliveryTime} min</InfoText>
+                            <InfoText>Frete R${restaurantDetails.shipping}</InfoText>
+                        </InfoContainer>
+                        <InfoText>{restaurantDetails.address}</InfoText>
+                    </RestaurantContainer>
+                    {restaurantDetails.products.map(product => {
+                        return (
+                            <CardProduct 
+                                key={product.id}
+                                id={product.id}
+                                image={product.photoUrl}
+                                name={product.name}
+                                description={product.description}
+                                price={product.price}
+                            />
+                        )
+                        })
+                    }
+                </CardsContainer>
+            }
         </RestaurantPageContainer>
     )
 }

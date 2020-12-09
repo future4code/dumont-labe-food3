@@ -19,10 +19,12 @@ export const InputContainer = styled.div `
 `
 export const FilterContainer = styled.div `
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-left: 32px;
-    margin-right: 32px;
+    width: 330px;
+    overflow: auto;
+`
+export const Filter = styled.p `
+    margin-right: 5px;
 `
 export const InputStyled = styled.input `
     height: 56px;
@@ -32,5 +34,5 @@ export const LoadingContainer = styled.div `
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 150px;
+    margin-top: 180px;
 `

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonStyled, HeaderContainer, PageTitle } from './styles'
+import { ButtonStyled, HeaderContainer, PageTitle, TitleContainer } from './styles'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 import { useHistory } from 'react-router-dom'
 
@@ -12,7 +12,9 @@ const Header = (props) => {
                 ?
                 <HeaderContainer>
                     <ButtonStyled onClick={props.goBack}><ArrowBackIosIcon/></ButtonStyled>
-                    <PageTitle>FutureEats</PageTitle>
+                    <TitleContainer>
+                        <PageTitle>FutureEats</PageTitle>
+                    </TitleContainer>
                 </HeaderContainer>
                 :
                 ""

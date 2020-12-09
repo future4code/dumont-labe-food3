@@ -8,8 +8,11 @@ export const HeaderContainer = styled.div `
     top: 0;
 `
 export const PageTitle = styled.p `
-        font-family: 'Roboto', sans-serif;
-        font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+`
+export const TitleContainer = styled.div `
+
 `
 export const ButtonStyled = styled(Button) `
     padding: 0;

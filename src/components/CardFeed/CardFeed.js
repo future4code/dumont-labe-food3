@@ -9,7 +9,7 @@ const CardFeed = (props) => {
     return (
             <CardStyled onClick={()=> goToRestaurantPage(history,props.id)}>
                 <ImageContainer>
-                    <ImageRestaurant src={props.image}/>
+                    <ImageRestaurant src={props.image} alt={props.name}/>
                 </ImageContainer>
                 <InfoName>{props.name}</InfoName>
                 <InfoContainer>
