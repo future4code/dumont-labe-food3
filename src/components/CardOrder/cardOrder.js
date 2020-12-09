@@ -20,7 +20,8 @@ const CardOrder = () => {
   ) : (
     <div>
       <div>
-        <p>Frete {order.shipping}</p>
+        <p>Nome do Restaurante</p>
+        <p>09 de dezembro de 2020</p>
         <p>Subtotal: R$ 00,00 </p>
       </div>
       <div>
