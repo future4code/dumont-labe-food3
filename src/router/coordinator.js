@@ -17,3 +17,7 @@ export const goToAdressPage = (history) => {
 export const goToProfilePage = (history) =>{
     history.push('/perfil')
 }
+
+export const goToEditProfile = (history) =>{
+    history.push('/editprofile')
+}

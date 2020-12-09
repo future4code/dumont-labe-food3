@@ -1,6 +1,6 @@
 import axios from "axios"
 import {baseUrl} from "./constants"
-import { goToFeedPage, goToAdressPage, goToSignUpPage } from "../router/coordinator"
+import { goToFeedPage, goToAdressPage, goToSignUpPage, goToProfilePage } from "../router/coordinator"
 
 
 const axiosConfig = {
@@ -63,4 +63,20 @@ export const Address = (body, history) => {
   })
 
 
+}
+
+export const UpdateProfile = (body, history) => {
+
+  axios
+  .put(`${baseUrl}/profile`, body, axiosConfig)
+
+  .then (()=>{
+    alert('Perfil alterado com sucesso!')
+    goToProfilePage(history)
+
+  })
+  .catch((error)=>{
+    alert('Deu ruim rapá!')
+    console.log(error.message)
+  })
 }
