@@ -52,7 +52,7 @@ export const Address = (body, history) => {
 
   .then ((response)=>{
     localStorage.setItem('token', response.data.token)
-    alert("Endereço cadastro com sucesso!")
+    alert("Endereço cadastrado com sucesso!")
     goToFeedPage(history)
 
   })
