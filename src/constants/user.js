@@ -1,6 +1,7 @@
 import axios from "axios"
 import {baseUrl} from "./constants"
-import { goToFeedPage, goToAdressPage,goToSignUpPage } from "../router/coordinator"
+import { goToFeedPage, goToAdressPage, goToSignUpPage } from "../router/coordinator"
+
 
 const axiosConfig = {
   headers: {
@@ -12,13 +13,18 @@ export const login = (body, history) =>{
 axios.post(`${baseUrl}/login`, body)
 .then ((response)=>{
       localStorage.setItem('user', response.data.user)
-      localStorage.setItem('token', response.data.token)
+      
 
       if(response.data.user.hasAddress){
+        localStorage.setItem("token", response.data.token);
         goToFeedPage(history)
+
       }else{
-        goToSignUpPage(history)
+         localStorage.setItem("token", response.data.token);
+        goToAdressPage(history);
       }
+
+      
 
     }).catch(error=>{
       alert ("Deu ruim rapá!")

@@ -4,7 +4,7 @@ export const LoginContainer = styled.div`
   width: 360px;
   height: 640px;
   padding: 0 0 184px;
-  background-color: pink;
+  
 `;
 
 export const Logo = styled.img`
