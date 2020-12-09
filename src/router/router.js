@@ -4,6 +4,7 @@ import AddressPage from "../screens/addressPage/addressPage"
 import FeedPage from "../screens/FeedPage/FeedPage"
 import InitialPage from "../screens/InitialPage/InitialPage"
 import LoginPage from "../screens/loginPage/loginPage"
+import ProfilePage from "../screens/profilePage/profilePage"
 import SignupPage from "../screens/signupPage/signupPage"
 
 
@@ -30,7 +31,7 @@ return(
 
         </Route>
         <Route exact path="/perfil">
-
+        <ProfilePage />
         </Route>
         <Route exact path="/endereco">
         <AddressPage />
