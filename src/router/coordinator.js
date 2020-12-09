@@ -13,3 +13,7 @@ export const goToSignUpPage = (history) => {
 export const goToAdressPage = (history) => {
     history.push ('/endereco')
 }
+
+export const goToCartPage = (history) =>{
+    history.push('/cart')
+}

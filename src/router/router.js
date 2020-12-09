@@ -5,6 +5,7 @@ import FeedPage from "../screens/FeedPage/FeedPage"
 import InitialPage from "../screens/InitialPage/InitialPage"
 import LoginPage from "../screens/loginPage/loginPage"
 import SignupPage from "../screens/signupPage/signupPage"
+import CartPage from "../screens/cartPage/CartPage"
 
 
 function Router(){
@@ -23,8 +24,8 @@ return(
         <Route exact path="/feed">
             <FeedPage />
         </Route>
-        <Route exact path="/carrinho">
-
+        <Route exact path="/cart">
+          <CartPage/>
         </Route>
         <Route exact path="/restaurantes">
 
