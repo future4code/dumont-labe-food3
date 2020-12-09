@@ -13,3 +13,7 @@ export const goToSignUpPage = (history) => {
 export const goToAdressPage = (history) => {
     history.push ('/endereco')
 }
+
+export const goToRestaurantPage = (history, id) => {
+    history.push (`/restaurantes/${id}`)
+}

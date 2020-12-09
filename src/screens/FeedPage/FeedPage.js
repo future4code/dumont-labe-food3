@@ -1,17 +1,18 @@
 import Axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
-import { CardsContainer, FeedPageContainer } from './styles'
+import { CardsContainer, FeedPageContainer, FilterContainer, InputContainer, InputStyled, LoadingContainer } from './styles'
 import { baseUrl } from '../../constants/constants'
 import CardFeed from '../../components/CardFeed/CardFeed'
-import { InputLabel, InputAdornment, OutlinedInput } from '@material-ui/core'
-import SearchIcon from '@material-ui/icons/Search'
+import LoadingInvert from '../../components/LoadingInvert/LoadingInvert'
+import { useHistory } from 'react-router-dom'
 
 
 const FeedPage = () => {
-
+    const history = useHistory()
     const [restaurants,setRestaurants] = useState([])
-
+    const [filteredRestaurants,setFilteredRestaurants] = useState([])
+    const [searchContent,setSearchContent] = useState("")
 
     useEffect(()=> {
         Axios.get(`${baseUrl}/restaurants`,
@@ -29,33 +30,82 @@ const FeedPage = () => {
         })
     },[])
 
+    const SearchFilter = (e) => {
+        const searchArray = restaurants.filter((restaurant) => {
+            const name = restaurant.name.toLowerCase()
+            return (
+                name.includes(e.target.value.toLowerCase())
+                )
+             })
+        setFilteredRestaurants(searchArray)
+        setSearchContent(e.target.value)
+    }
+
+    function goBack() {
+        window.history.back()
+    }
 
     return (
         <FeedPageContainer>
-            <Header />
+            <Header goBack={goBack}/>
             <div>
-            <InputLabel htmlFor="input-with-icon-adornment"></InputLabel>
-                <OutlinedInput variant="outlined" placeholder="Restaurante" id="input-with-icon-adornment"
-                    startAdornment={
-                        <InputAdornment position="start">
-                            <SearchIcon />
-                        </InputAdornment>
-                    }
-                />
+                <InputContainer>
+                    <InputStyled onChange={SearchFilter} placeholder="Restaurante"/>
+                </InputContainer>
+                <FilterContainer>
+                    <p>Árabe</p>
+                    <p>Asiática</p>
+                    <p>Baiana</p>
+                    <p>Carnes</p>
+                    {/* <p>Hamburguer</p>
+                    <p>Italiana</p>
+                    <p>Mexicana</p>
+                    <p>Sorvetes</p>
+                    <p>Petiscos</p> */}
+                </FilterContainer>
                 <CardsContainer>
-                    {restaurants.map(restaurant =>{
-                        return (
-                                <CardFeed
-                                    key={restaurant.id}
-                                    id={restaurant.id}
-                                    image={restaurant.logoUrl}
-                                    name={restaurant.name}
-                                    deliveryTime={restaurant.deliveryTime}
-                                    shipping={restaurant.shipping}
-                                />
-                        )
+                    {restaurants.length===0
+                        ?
+                        <LoadingContainer>
+                            <LoadingInvert />
+                        </LoadingContainer>
+                        :
+                        searchContent===""
+                            ?
+                            restaurants.map(restaurant =>{
+                                return (
+                                    <CardFeed
+                                        key={restaurant.id}
+                                        id={restaurant.id}
+                                        image={restaurant.logoUrl}
+                                        name={restaurant.name}
+                                        deliveryTime={restaurant.deliveryTime}
+                                        shipping={restaurant.shipping}
+                                    />
+                                )
+                            })
+                            :
+                            <div>
+                            {filteredRestaurants.length===0
+                                ?
+                                <p>Não encontramos :(</p>
+                                :
+                                ""
+                            }
+                            {filteredRestaurants.map(restaurant =>{
+                                return (
+                                    <CardFeed
+                                        key={restaurant.id}
+                                        id={restaurant.id}
+                                        image={restaurant.logoUrl}
+                                        name={restaurant.name}
+                                        deliveryTime={restaurant.deliveryTime}
+                                        shipping={restaurant.shipping}
+                                    />
+                                )            
+                            })}
+                            </div>
                     }
-                    )}
                 </CardsContainer>
             </div>
         </FeedPageContainer>
