@@ -20,7 +20,6 @@ const RestaurantPage = () => {
             }
         })
         .then((res)=>{
-            console.log(res.data.restaurant)
             setRestaurantDetails(res.data.restaurant)
         })
         .catch((err)=>{
@@ -31,7 +30,7 @@ const RestaurantPage = () => {
     function goBack() {
         window.history.back()
     }
-console.log(restaurantDetails.products)
+
     return (
         <RestaurantPageContainer>
             <Header goBack={goBack}/>

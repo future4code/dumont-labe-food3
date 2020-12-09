@@ -5,6 +5,7 @@ export const InfoContainer = styled.div `
     justify-content: space-between;
     margin-left: 8px;
     margin-right: 0px;
+    padding: 0;
 `
 export const ImageContainer = styled.div `
     display: flex;
@@ -21,6 +22,7 @@ export const CardStyled = styled.div `
     border: 1px lightgrey solid;
     border-radius: 5px;
     margin: 8px;
+    padding: 0;
 `
 export const InfoText = styled.p `
     font-family: 'Roboto', sans-serif;
@@ -51,4 +53,40 @@ export const TextContainer = styled.div `
 export const DescriptionContainer = styled.div `
     text-align: left;
     margin: 8px;
+`
+export const AddRemoveButton = styled.button `
+    border: 1px #5cb646 solid;
+    background-color: transparent;
+    color: #5cb646;
+    border-radius: 0px 0px 5px 0px;
+    height: 31px;
+    width: 90px;
+    /* overflow: hidden;
+    position: relative;
+    margin: 1em;
+    &:before{
+        content: '';
+        display: block;
+        background: #d33;
+        height: 31px;
+        width: 90px;
+        transform: rotate(45deg);
+        position: relative;
+        bottom: 4px;
+        left: 0px;
+    } */
+    &:hover {
+        cursor: pointer;
+    }
+`
+export const QuantityContainer = styled.div `
+    border: 1px #5cb646 solid;
+    color: #5cb646;
+    border-radius: 0px 5px 0px 0px;
+    height: 33px;
+    width: 33px;
+`
+export const NameContainer = styled.div `
+    display: flex;
+    justify-content: space-between;
 `
