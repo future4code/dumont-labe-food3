@@ -1,22 +1,34 @@
 import React from 'react'
-import { ButtonStyled, HeaderContainer, PageTitle } from './styles'
+import { ButtonStyled, HeaderContainer, PageTitle, TitleContainer } from './styles'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
-import { Button } from  '@material-ui/core'
 import { useHistory } from 'react-router-dom'
 
-const Header = () => {
+const Header = (props) => {
     const history = useHistory()
 
     return (
-        <HeaderContainer>
-            <ButtonStyled><ArrowBackIosIcon/></ButtonStyled>
+        <div>
             {history.location.pathname==='/feed'
                 ?
-                <PageTitle>FutureEats</PageTitle>
+                <HeaderContainer>
+                    <ButtonStyled onClick={props.goBack}><ArrowBackIosIcon/></ButtonStyled>
+                    <TitleContainer>
+                        <PageTitle>FutureEats</PageTitle>
+                    </TitleContainer>
+                </HeaderContainer>
                 :
-                <PageTitle>Título da Página</PageTitle>
+                ""
             }
-        </HeaderContainer>
+            {history.location.pathname.includes('/restaurantes')
+                ?
+                <HeaderContainer>
+                    <ButtonStyled onClick={props.goBack}><ArrowBackIosIcon/></ButtonStyled>
+                    <PageTitle>Restaurante</PageTitle>
+                </HeaderContainer>
+                :
+                ""
+            }
+        </div>
     )
 }
 
