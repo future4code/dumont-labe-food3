@@ -3,9 +3,11 @@ import GlobalStateContex from "./globalStateContext"
 
 const GlobalState = (props) =>{
 
+    const [profile, setProfile] = useState([])
 
-    const states = {}
-    const setters = {}
+
+    const states = {profile}
+    const setters = {setProfile}
 
     const data = {states,setters}
 
