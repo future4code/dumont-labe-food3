@@ -28,7 +28,7 @@ return(
             <FeedPage />
         </Route>
         <Route exact path="/carrinho">
-        <CartPage/>
+            <CartPage />
         </Route>
         <Route exact path="/restaurantes/:id">
             <RestaurantPage />
