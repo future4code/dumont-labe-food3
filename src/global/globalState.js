@@ -15,7 +15,7 @@ const GlobalState = (props) =>{
        <GlobalStateContex.Provider value={data}>
            {props.children}
        </GlobalStateContex.Provider>
-
+ffffffffffff
     )
 }
 export default GlobalState
