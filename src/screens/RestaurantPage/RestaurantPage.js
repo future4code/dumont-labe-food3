@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header'
 import { baseUrl } from '../../constants/constants'
 import { RestaurantPageContainer, ImageRestaurant, RestaurantContainer, InfoContainer, InfoName, InfoText, ImageContainer, LoadingContainer, CardsContainer } from './styles'
 import LoadingInvert from '../../components/LoadingInvert/LoadingInvert'
+import Footer from '../../components/Footer/Footer'
 
 const RestaurantPage = () => {
     const history = useHistory()
@@ -67,6 +68,7 @@ const RestaurantPage = () => {
                     }
                 </CardsContainer>
             }
+            <Footer />
         </RestaurantPageContainer>
     )
 }

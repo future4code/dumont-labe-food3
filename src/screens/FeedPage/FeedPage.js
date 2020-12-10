@@ -6,6 +6,7 @@ import { baseUrl } from '../../constants/constants'
 import CardFeed from '../../components/CardFeed/CardFeed'
 import LoadingInvert from '../../components/LoadingInvert/LoadingInvert'
 import { useHistory } from 'react-router-dom'
+import Footer from '../../components/Footer/Footer'
 
 
 const FeedPage = () => {
@@ -151,6 +152,7 @@ const FeedPage = () => {
                     }
                 </CardsContainer>
             </div>
+            <Footer />
         </FeedPageContainer>
     )
 }
