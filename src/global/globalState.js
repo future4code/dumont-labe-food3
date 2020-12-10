@@ -2,12 +2,14 @@ import React, { useState } from "react"
 import GlobalStateContex from "./globalStateContext"
 
 const GlobalState = (props) =>{
-
+    const [restaurante,setRestaurante] = useState({})
+    const [cart,setCart] = useState([])
     const [profile, setProfile] = useState([])
 
+    const states = {restaurante,cart,profile}
+    const setters = {setRestaurante,setCart,setProfile}
+  
 
-    const states = {profile}
-    const setters = {setProfile}
 
     const data = {states,setters}
 
@@ -15,7 +17,6 @@ const GlobalState = (props) =>{
        <GlobalStateContex.Provider value={data}>
            {props.children}
        </GlobalStateContex.Provider>
-ffffffffffff
     )
 }
 export default GlobalState
