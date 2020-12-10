@@ -39,6 +39,38 @@ const Header = (props) => {
                 :
                 ""
             }
+            {history.location.pathname==='/carrinho'
+                ?
+                <HeaderContainer>
+                    <TitleContainer>
+                        <PageTitle>Meu Carrinho</PageTitle>
+                    </TitleContainer>
+                </HeaderContainer>
+                :
+                ""
+            }
+            {history.location.pathname==='/editprofile'
+                ?
+                <HeaderContainer>
+                    <ButtonStyled onClick={props.goBack}><ArrowBackIosIcon/></ButtonStyled>
+                    <TitleContainer style={{marginLeft:70}}>
+                        <PageTitle>Editar</PageTitle>
+                    </TitleContainer>
+                </HeaderContainer>
+                :
+                ""
+            }
+            {history.location.pathname==='/endereco'
+                ?
+                <HeaderContainer>
+                    <ButtonStyled onClick={props.goBack}><ArrowBackIosIcon/></ButtonStyled>
+                    <TitleContainer style={{marginLeft:70}}>
+                        <PageTitle>Endereço</PageTitle>
+                    </TitleContainer>
+                </HeaderContainer>
+                :
+                ""
+            }
         </div>
     )
 }
