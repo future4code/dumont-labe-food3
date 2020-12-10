@@ -54,7 +54,7 @@ export const DescriptionContainer = styled.div `
     text-align: left;
     margin: 8px;
 `
-export const AddRemoveButton = styled.button `
+export const AddButton = styled.button `
     border: 1px #5cb646 solid;
     background-color: transparent;
     color: #5cb646;
