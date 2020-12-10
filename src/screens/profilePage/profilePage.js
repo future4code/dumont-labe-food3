@@ -4,10 +4,15 @@ import { baseUrl } from '../../constants/constants'
 import GlobalStateContext from '../../global/globalStateContext'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
+import Header from '../../components/Header/Header'
+import {ButtonStyled} from '../../components/Header/styles'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
+import Loading from '../../components/Loading/Loading'
 
 import { goToAdressPage, goToEditProfile, goToFeedPage } from '../../router/coordinator'
 
 import CardOrder from "../../components/CardOrder/cardOrder"
+import { Profile, ProfileCPF, ProfileEmail, ProfileEmailDiv, ProfileName } from './styles'
 
 
 const ProfilePage = () => {
@@ -28,21 +33,23 @@ const ProfilePage = () => {
        
         profileInfo ?
 
-            <div>
-                <button onClick={() => goToFeedPage(history)}>Voltar</button>
+            <Profile>
+
+                <Header />
+                <ButtonStyled onClick={() => goToFeedPage(history)}><ArrowBackIosIcon/></ButtonStyled>
                 <div>
-                    <p>Nome: {profileInfo.user.name}</p>
-                    <p>Email: {profileInfo.user.email}</p>
-                    <p>CPF: {profileInfo.user.cpf}</p>
+                    <ProfileName>Nome: {profileInfo.user.name}</ProfileName>
+                    <ProfileEmail>Email: {profileInfo.user.email}</ProfileEmail>
+                    <ProfileCPF>CPF: {profileInfo.user.cpf}</ProfileCPF>
                     <button onClick={() => goToEditProfile(history)}>Editar</button>
 
                 </div>
 
-                <div>
+                <ProfileEmailDiv>
                     <h4>Endereço cadastrado:</h4>
                     <p>{profileInfo.user.address}</p>
                     <button onClick={() => goToAdressPage(history)}>Editar</button>
-                </div>
+                </ProfileEmailDiv>
 
                 <div>
                        <div>
@@ -50,14 +57,14 @@ const ProfilePage = () => {
         </div>
 
                 </div>
-            </div>
+            </Profile>
 
 
             :
-
-            <div>
-                <p>Carregando...</p>
-            </div>
+            
+               <div>
+                   <p>Carregando...</p>
+               </div>
 
 
     )
