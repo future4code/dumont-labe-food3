@@ -4,7 +4,7 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 import { useHistory } from 'react-router-dom'
-import { goToFeedPage, goToProfilePage } from '../../router/coordinator';
+import { goToCart, goToFeedPage, goToProfilePage } from '../../router/coordinator';
 
 const Footer = (props) => {
     const history = useHistory()
@@ -23,7 +23,7 @@ const Footer = (props) => {
             }
             {history.location.pathname==='/cart'
                 ?
-                <ButtonStyled>
+                <ButtonStyled onClick={()=>goToCart(history)}>
                     <ShoppingCartOutlinedIcon style={{color:'#5cb646'}}/>
                 </ButtonStyled>
                 :
