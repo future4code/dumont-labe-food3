@@ -21,3 +21,7 @@ export const goToRestaurantPage = (history, id) => {
 export const goToProfilePage = (history) =>{
     history.push('/perfil')
 }
+
+export const goToEditProfile = (history) =>{
+    history.push('/editprofile')
+}

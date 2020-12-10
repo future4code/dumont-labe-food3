@@ -4,7 +4,11 @@ import { baseUrl } from '../../constants/constants'
 import GlobalStateContext from '../../global/globalStateContext'
 import useProtectedPage from '../../hooks/useProtectedPage'
 import useRequestData from '../../hooks/useRequestData'
+
+import { goToAdressPage, goToEditProfile, goToFeedPage } from '../../router/coordinator'
+
 import CardOrder from "../../components/CardOrder/cardOrder"
+
 
 const ProfilePage = () => {
 
@@ -18,28 +22,46 @@ const ProfilePage = () => {
 
 
 
-    return profileInfo ? (
-      <div>
-        <div>
-          <p>Nome: {profileInfo.user.name}</p>
-          <p>Email: {profileInfo.user.email}</p>
-          <p>CPF: {profileInfo.user.cpf}</p>
-        </div>
-        <div>
-          <h4>Endereço cadastrado:</h4>
-          <p>{profileInfo.user.address}</p>
-        </div>
-        <div>
+
+    return (
+
+       
+        profileInfo ?
+
+            <div>
+                <button onClick={() => goToFeedPage(history)}>Voltar</button>
+                <div>
+                    <p>Nome: {profileInfo.user.name}</p>
+                    <p>Email: {profileInfo.user.email}</p>
+                    <p>CPF: {profileInfo.user.cpf}</p>
+                    <button onClick={() => goToEditProfile(history)}>Editar</button>
+
+                </div>
+
+                <div>
+                    <h4>Endereço cadastrado:</h4>
+                    <p>{profileInfo.user.address}</p>
+                    <button onClick={() => goToAdressPage(history)}>Editar</button>
+                </div>
+
+                <div>
+                       <div>
           <CardOrder />
         </div>
-        
-      </div>
-    ) : (
-      <div>
-        <p>Carregando...</p>
-      </div>
-    );
- 
+
+                </div>
+            </div>
+
+
+            :
+
+            <div>
+                <p>Carregando...</p>
+            </div>
+
+
+    )
+
 
 
 }
