@@ -69,8 +69,6 @@ const FeedPage = () => {
     }
 
     return (
-        
-        
             <FeedPageContainer>
                 <Header goBack={goBack}/>
                 <div>
@@ -156,7 +154,6 @@ const FeedPage = () => {
                 </div>
                 <Footer />
             </FeedPageContainer>
-      
     )
 }
 

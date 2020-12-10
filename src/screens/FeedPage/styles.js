@@ -11,19 +11,22 @@ export const FeedPageContainer = styled.div `
     border: 1px black solid;
 `
 export const CardsContainer = styled.div `
-    height: 380px;
+    height: 435px;
     text-align: center;
     overflow: auto;
 `
 export const InputContainer = styled.div `
     text-align: center;
+    margin-top: 10px;
 `
 export const FilterContainer = styled.div `
     display: flex;
     align-items: center;
     width: 330px;
+    height: 42px;
     margin-left: 8px;
-    overflow: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
 `
 export const Filter = styled.p `
     margin-right: 10px;
