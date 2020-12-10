@@ -68,7 +68,6 @@ const RestaurantPage = () => {
                     }
                 </CardsContainer>
             }
-            <Footer />
         </RestaurantPageContainer>
     )
 }

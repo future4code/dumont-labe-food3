@@ -5,12 +5,13 @@ export const FeedPageContainer = styled.div `
     justify-content: center;
     align-items: center;
     margin: auto;
+    padding: 0;
     width: 360px;
     height: 640px;
     border: 1px black solid;
 `
 export const CardsContainer = styled.div `
-    height: 400px;
+    height: 380px;
     text-align: center;
     overflow: auto;
 `
@@ -21,6 +22,7 @@ export const FilterContainer = styled.div `
     display: flex;
     align-items: center;
     width: 330px;
+    margin-left: 8px;
     overflow: auto;
 `
 export const Filter = styled.p `

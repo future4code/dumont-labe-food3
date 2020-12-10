@@ -45,7 +45,8 @@ export const LoadingContainer = styled.div `
     align-items: center;
 `
 export const CardsContainer = styled.div `
-    height: 550px;
+    height: 595px;
     text-align: center;
+    margin-top: 40px;
     overflow: auto;
 `

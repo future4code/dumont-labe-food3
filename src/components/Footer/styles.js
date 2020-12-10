@@ -7,7 +7,8 @@ export const FooterContainer = styled.div `
     justify-content: space-around;
     height: 49px;
     width: 360px;
-    top: 600px;
+    top: 595px;
+    border-top: 1px solid #b8b8b8;
 `
 export const ButtonStyled = styled(Button) `
     padding: 0;

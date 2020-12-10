@@ -69,91 +69,94 @@ const FeedPage = () => {
     }
 
     return (
-        <FeedPageContainer>
-            <Header goBack={goBack}/>
-            <div>
-                <InputContainer>
-                    <InputStyled onChange={SearchFilter} placeholder="Restaurante"/>
-                </InputContainer>
-                <FilterContainer>
-                    <Filter onClick={()=>FilterCategory('')}>
-                        {filter===''?<p style={{color:'#5cb646'}}>Todos</p>:<p>Todos</p>}
-                    </Filter>
-                    <Filter onClick={()=>FilterCategory('Árabe')}>
-                        {filter==='Árabe'?<p style={{color:'#5cb646'}}>Árabe</p>:<p>Árabe</p>}
-                    </Filter>
-                    <Filter onClick={()=>FilterCategory('Asiática')}>
-                        {filter==='Asiática'?<p style={{color:'#5cb646'}}>Asiática</p>:<p>Asiática</p>}
-                    </Filter>
-                    <Filter onClick={()=>FilterCategory('Baiana')}>
-                        {filter==='Baiana'?<p style={{color:'#5cb646'}}>Baiana</p>:<p>Baiana</p>}
-                    </Filter>
-                    <Filter onClick={()=>FilterCategory('Carnes')}>
-                        {filter==='Carnes'?<p style={{color:'#5cb646'}}>Carnes</p>:<p>Carnes</p>}
-                    </Filter>
-                    <Filter onClick={()=>FilterCategory('Hamburguer')}>
-                        {filter==='Hamburguer'?<p style={{color:'#5cb646'}}>Hamburguer</p>:<p>Hamburguer</p>}
-                    </Filter>
-                    <Filter onClick={()=>FilterCategory('Italiana')}>
-                        {filter==='Italiana'?<p style={{color:'#5cb646'}}>Italiana</p>:<p>Italiana</p>}
-                    </Filter>
-                    <Filter onClick={()=>FilterCategory('Mexicana')}>
-                        {filter==='Mexicana'?<p style={{color:'#5cb646'}}>Mexicana</p>:<p>Mexicana</p>}
-                    </Filter>
-                    <Filter onClick={()=>FilterCategory('Sorvetes')}>
-                        {filter==='Sorvetes'?<p style={{color:'#5cb646'}}>Sorvetes</p>:<p>Sorvetes</p>}
-                    </Filter>
-                    <Filter onClick={()=>FilterCategory('Petiscos')}>
-                        {filter==='Petiscos'?<p style={{color:'#5cb646'}}>Petiscos</p>:<p>Petiscos</p>}
-                    </Filter>
-                </FilterContainer>
-                <CardsContainer>
-                    {restaurants.length===0
-                        ?
-                        <LoadingContainer>
-                            <LoadingInvert />
-                        </LoadingContainer>
-                        :
-                        searchContent==="" && filter===""
+        
+        
+            <FeedPageContainer>
+                <Header goBack={goBack}/>
+                <div>
+                    <InputContainer>
+                        <InputStyled onChange={SearchFilter} placeholder="Restaurante"/>
+                    </InputContainer>
+                    <FilterContainer>
+                        <Filter onClick={()=>FilterCategory('')}>
+                            {filter===''?<p style={{color:'#5cb646'}}>Todos</p>:<p>Todos</p>}
+                        </Filter>
+                        <Filter onClick={()=>FilterCategory('Árabe')}>
+                            {filter==='Árabe'?<p style={{color:'#5cb646'}}>Árabe</p>:<p>Árabe</p>}
+                        </Filter>
+                        <Filter onClick={()=>FilterCategory('Asiática')}>
+                            {filter==='Asiática'?<p style={{color:'#5cb646'}}>Asiática</p>:<p>Asiática</p>}
+                        </Filter>
+                        <Filter onClick={()=>FilterCategory('Baiana')}>
+                            {filter==='Baiana'?<p style={{color:'#5cb646'}}>Baiana</p>:<p>Baiana</p>}
+                        </Filter>
+                        <Filter onClick={()=>FilterCategory('Carnes')}>
+                            {filter==='Carnes'?<p style={{color:'#5cb646'}}>Carnes</p>:<p>Carnes</p>}
+                        </Filter>
+                        <Filter onClick={()=>FilterCategory('Hamburguer')}>
+                            {filter==='Hamburguer'?<p style={{color:'#5cb646'}}>Hamburguer</p>:<p>Hamburguer</p>}
+                        </Filter>
+                        <Filter onClick={()=>FilterCategory('Italiana')}>
+                            {filter==='Italiana'?<p style={{color:'#5cb646'}}>Italiana</p>:<p>Italiana</p>}
+                        </Filter>
+                        <Filter onClick={()=>FilterCategory('Mexicana')}>
+                            {filter==='Mexicana'?<p style={{color:'#5cb646'}}>Mexicana</p>:<p>Mexicana</p>}
+                        </Filter>
+                        <Filter onClick={()=>FilterCategory('Sorvetes')}>
+                            {filter==='Sorvetes'?<p style={{color:'#5cb646'}}>Sorvetes</p>:<p>Sorvetes</p>}
+                        </Filter>
+                        <Filter onClick={()=>FilterCategory('Petiscos')}>
+                            {filter==='Petiscos'?<p style={{color:'#5cb646'}}>Petiscos</p>:<p>Petiscos</p>}
+                        </Filter>
+                    </FilterContainer>
+                    <CardsContainer>
+                        {restaurants.length===0
                             ?
-                            restaurants.map(restaurant =>{
-                                return (
-                                    <CardFeed
-                                        key={restaurant.id}
-                                        id={restaurant.id}
-                                        image={restaurant.logoUrl}
-                                        name={restaurant.name}
-                                        deliveryTime={restaurant.deliveryTime}
-                                        shipping={restaurant.shipping}
-                                    />
-                                )
-                            })
+                            <LoadingContainer>
+                                <LoadingInvert />
+                            </LoadingContainer>
                             :
-                            <div>
-                            {filteredRestaurants.length===0
+                            searchContent==="" && filter===""
                                 ?
-                                <p>Não encontramos :(</p>
+                                restaurants.map(restaurant =>{
+                                    return (
+                                        <CardFeed
+                                            key={restaurant.id}
+                                            id={restaurant.id}
+                                            image={restaurant.logoUrl}
+                                            name={restaurant.name}
+                                            deliveryTime={restaurant.deliveryTime}
+                                            shipping={restaurant.shipping}
+                                        />
+                                    )
+                                })
                                 :
-                                ""
-                            }
-                            {filteredRestaurants.map(restaurant =>{
-                                return (
-                                    <CardFeed
-                                        key={restaurant.id}
-                                        id={restaurant.id}
-                                        image={restaurant.logoUrl}
-                                        name={restaurant.name}
-                                        deliveryTime={restaurant.deliveryTime}
-                                        shipping={restaurant.shipping}
-                                    />
-                                )            
-                            })}
-                            </div>
-                    }
-                </CardsContainer>
-            </div>
-            <Footer />
-        </FeedPageContainer>
+                                <div>
+                                {filteredRestaurants.length===0
+                                    ?
+                                    <p>Não encontramos :(</p>
+                                    :
+                                    ""
+                                }
+                                {filteredRestaurants.map(restaurant =>{
+                                    return (
+                                        <CardFeed
+                                            key={restaurant.id}
+                                            id={restaurant.id}
+                                            image={restaurant.logoUrl}
+                                            name={restaurant.name}
+                                            deliveryTime={restaurant.deliveryTime}
+                                            shipping={restaurant.shipping}
+                                        />
+                                    )            
+                                })}
+                                </div>
+                        }
+                    </CardsContainer>
+                </div>
+                <Footer />
+            </FeedPageContainer>
+      
     )
 }
 
