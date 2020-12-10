@@ -1,9 +1,13 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { InfoContainer, ImageRestaurant, CardStyled, InfoText, InfoName, ImageContainer, TextContainer, PriceText, DescriptionContainer } from './styles'
+import { InfoContainer, ImageRestaurant, CardStyled, InfoText, InfoName, ImageContainer, TextContainer, PriceText, DescriptionContainer, AddRemoveButton, QuantityContainer, NameContainer } from './styles'
 
 const CardProduct = (props) => {
     const history = useHistory()
+
+    const ChangeCart = () => {
+        alert("mudou carrinho")
+    }
 
     return (
             <CardStyled>
@@ -12,12 +16,15 @@ const CardProduct = (props) => {
                 </ImageContainer>
                 <TextContainer>
                     <DescriptionContainer>
-                        <InfoName>{props.name}</InfoName>
+                        <NameContainer>
+                            <InfoName>{props.name}</InfoName>
+                            <QuantityContainer>2</QuantityContainer>
+                        </NameContainer>
                         <InfoText>{props.description}</InfoText>
                     </DescriptionContainer>
                     <InfoContainer>
                             <PriceText>{props.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </PriceText>
-                            <button>adicionar</button>
+                            <AddRemoveButton onClick={ChangeCart}>adicionar</AddRemoveButton>
                     </InfoContainer>
                 </TextContainer>
             </CardStyled>

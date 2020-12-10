@@ -16,6 +16,9 @@ export const CardStyled = styled.div `
     border: 1px lightgrey solid;
     border-radius: 5px;
     margin: 8px;
+    &:hover {
+        cursor: pointer;
+    }
 `
 export const InfoText = styled.p `
     font-family: 'Roboto', sans-serif;
