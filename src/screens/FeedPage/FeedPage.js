@@ -12,7 +12,9 @@ const FeedPage = () => {
     const history = useHistory()
     const [restaurants,setRestaurants] = useState([])
     const [filteredRestaurants,setFilteredRestaurants] = useState([])
+    const [categoryRestaurants,setCategoryRestaurants] = useState([])
     const [searchContent,setSearchContent] = useState("")
+    const [filter,setFilter] = useState("")
 
     useEffect(()=> {
         Axios.get(`${baseUrl}/restaurants`,
@@ -31,14 +33,34 @@ const FeedPage = () => {
     },[])
 
     const SearchFilter = (e) => {
-        const searchArray = restaurants.filter((restaurant) => {
-            const name = restaurant.name.toLowerCase()
-            return (
-                name.includes(e.target.value.toLowerCase())
-                )
-             })
-        setFilteredRestaurants(searchArray)
-        setSearchContent(e.target.value)
+        if(filter===''){
+            const searchArray = restaurants.filter((restaurant) => {
+                const name = restaurant.name.toLowerCase()
+                return (
+                    name.includes(e.target.value.toLowerCase())
+                    )
+                })
+            setFilteredRestaurants(searchArray)
+            setSearchContent(e.target.value)
+        } else {
+            const searchArray = categoryRestaurants.filter((restaurant) => {
+                const name = restaurant.name.toLowerCase()
+                return (
+                    name.includes(e.target.value.toLowerCase())
+                    )
+                 })
+            setFilteredRestaurants(searchArray)
+            setSearchContent('')  
+        }
+    }
+    
+    const FilterCategory = (category) => {
+        const filteredArray = restaurants.filter(restaurant =>{
+            return restaurant.category === category
+        })
+        setFilteredRestaurants(filteredArray)
+        setCategoryRestaurants(filteredArray)
+        setFilter(category)
     }
 
     function goBack() {
@@ -53,16 +75,36 @@ const FeedPage = () => {
                     <InputStyled onChange={SearchFilter} placeholder="Restaurante"/>
                 </InputContainer>
                 <FilterContainer>
-                    <Filter>Todos</Filter>
-                    <Filter>Árabe</Filter>
-                    <Filter>Asiática</Filter>
-                    <Filter>Baiana</Filter>
-                    <Filter>Carnes</Filter>
-                    <Filter>Hamburguer</Filter>
-                    <Filter>Italiana</Filter>
-                    <Filter>Mexicana</Filter>
-                    <Filter>Sorvetes</Filter>
-                    <Filter>Petiscos</Filter>
+                    <Filter onClick={()=>FilterCategory('')}>
+                        {filter===''?<p style={{color:'#5cb646'}}>Todos</p>:<p>Todos</p>}
+                    </Filter>
+                    <Filter onClick={()=>FilterCategory('Árabe')}>
+                        {filter==='Árabe'?<p style={{color:'#5cb646'}}>Árabe</p>:<p>Árabe</p>}
+                    </Filter>
+                    <Filter onClick={()=>FilterCategory('Asiática')}>
+                        {filter==='Asiática'?<p style={{color:'#5cb646'}}>Asiática</p>:<p>Asiática</p>}
+                    </Filter>
+                    <Filter onClick={()=>FilterCategory('Baiana')}>
+                        {filter==='Baiana'?<p style={{color:'#5cb646'}}>Baiana</p>:<p>Baiana</p>}
+                    </Filter>
+                    <Filter onClick={()=>FilterCategory('Carnes')}>
+                        {filter==='Carnes'?<p style={{color:'#5cb646'}}>Carnes</p>:<p>Carnes</p>}
+                    </Filter>
+                    <Filter onClick={()=>FilterCategory('Hamburguer')}>
+                        {filter==='Hamburguer'?<p style={{color:'#5cb646'}}>Hamburguer</p>:<p>Hamburguer</p>}
+                    </Filter>
+                    <Filter onClick={()=>FilterCategory('Italiana')}>
+                        {filter==='Italiana'?<p style={{color:'#5cb646'}}>Italiana</p>:<p>Italiana</p>}
+                    </Filter>
+                    <Filter onClick={()=>FilterCategory('Mexicana')}>
+                        {filter==='Mexicana'?<p style={{color:'#5cb646'}}>Mexicana</p>:<p>Mexicana</p>}
+                    </Filter>
+                    <Filter onClick={()=>FilterCategory('Sorvetes')}>
+                        {filter==='Sorvetes'?<p style={{color:'#5cb646'}}>Sorvetes</p>:<p>Sorvetes</p>}
+                    </Filter>
+                    <Filter onClick={()=>FilterCategory('Petiscos')}>
+                        {filter==='Petiscos'?<p style={{color:'#5cb646'}}>Petiscos</p>:<p>Petiscos</p>}
+                    </Filter>
                 </FilterContainer>
                 <CardsContainer>
                     {restaurants.length===0
@@ -71,7 +113,7 @@ const FeedPage = () => {
                             <LoadingInvert />
                         </LoadingContainer>
                         :
-                        searchContent===""
+                        searchContent==="" && filter===""
                             ?
                             restaurants.map(restaurant =>{
                                 return (

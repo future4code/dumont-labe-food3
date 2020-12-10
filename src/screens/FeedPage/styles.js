@@ -10,7 +10,7 @@ export const FeedPageContainer = styled.div `
     border: 1px black solid;
 `
 export const CardsContainer = styled.div `
-    height: 450px;
+    height: 400px;
     text-align: center;
     overflow: auto;
 `
@@ -24,7 +24,10 @@ export const FilterContainer = styled.div `
     overflow: auto;
 `
 export const Filter = styled.p `
-    margin-right: 5px;
+    margin-right: 10px;
+    &:hover{
+        cursor: pointer;
+    }
 `
 export const InputStyled = styled.input `
     height: 56px;
