@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { InfoContainer, ImageRestaurant, CardStyled, InfoText, InfoName, ImageContainer, TextContainer, PriceText, DescriptionContainer, AddButton, QuantityContainer, NameContainer } from './styles'
+import { InfoContainer, ImageRestaurant, CardStyled, InfoText, InfoName, ImageContainer, TextContainer, PriceText, DescriptionContainer, AddButton, QuantityContainer, NameContainer, RemoveButton } from './styles'
 import GlobalStateContex from "../../global/globalStateContext"
 
 
@@ -31,6 +31,7 @@ const CardProduct = (props) => {
                     <InfoContainer>
                             <PriceText>{props.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </PriceText>
                             <AddButton onClick={()=>saveOrder(props)}>adicionar</AddButton>
+                            {/* <RemoveButton>remover</RemoveButton> */}
                     </InfoContainer>
                 </TextContainer>
             </CardStyled>
