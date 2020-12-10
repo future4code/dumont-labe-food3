@@ -9,7 +9,7 @@ import RestaurantPage from "../screens/RestaurantPage/RestaurantPage"
 import ProfilePage from "../screens/profilePage/profilePage"
 import SignupPage from "../screens/signupPage/signupPage"
 import ErrorPage from "../screens/ErrorPage/ErrorPage"
-import CartPage from '../screens/cartPage/cartPage'
+import CartPage from "../screens/cartPage/cartPage"
 
 function Router(){
 return(
