@@ -7,12 +7,12 @@ import useRequestData from '../../hooks/useRequestData'
 import Header from '../../components/Header/Header'
 import {ButtonStyled} from '../../components/Header/styles'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
-import Loading from '../../components/Loading/Loading'
+import Edit from '../../assets/img/edit-profile.svg'
 
-import { goToAdressPage, goToEditProfile, goToFeedPage } from '../../router/coordinator'
+import { goToEditAddress, goToEditProfile, goToFeedPage } from '../../router/coordinator'
 
 import CardOrder from "../../components/CardOrder/cardOrder"
-import { Profile, ProfileCPF, ProfileEmail, ProfileEmailDiv, ProfileName } from './styles'
+import { EditProfile, Profile, ProfileAddress, ProfileAddressTitle, ProfileCPF, ProfileEmail, ProfileEmailDiv, ProfileName } from './styles'
 
 
 const ProfilePage = () => {
@@ -41,14 +41,15 @@ const ProfilePage = () => {
                     <ProfileName>Nome: {profileInfo.user.name}</ProfileName>
                     <ProfileEmail>Email: {profileInfo.user.email}</ProfileEmail>
                     <ProfileCPF>CPF: {profileInfo.user.cpf}</ProfileCPF>
-                    <button onClick={() => goToEditProfile(history)}>Editar</button>
+                    <EditProfile src={Edit} onClick={() => goToEditProfile(history)} />
 
                 </div>
 
                 <ProfileEmailDiv>
-                    <h4>Endereço cadastrado:</h4>
-                    <p>{profileInfo.user.address}</p>
-                    <button onClick={() => goToAdressPage(history)}>Editar</button>
+                    <ProfileAddressTitle>Endereço cadastrado:</ProfileAddressTitle>
+                    <ProfileAddress>{profileInfo.user.address}</ProfileAddress>
+                    <EditProfile src={Edit} onClick={() => goToEditAddress(history)} />
+                    
                 </ProfileEmailDiv>
 
                 <div>

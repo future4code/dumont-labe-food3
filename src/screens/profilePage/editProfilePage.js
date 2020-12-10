@@ -1,7 +1,12 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
+import Header from '../../components/Header/Header'
 import { UpdateProfile } from '../../constants/user'
 import { useForm } from '../../hooks/useForm'
+import { EditProfileButton, EditProfileDiv, EditProfileInput, EditProfileInputDiv } from './styles'
+import {ButtonStyled} from '../../components/Header/styles'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
+import {goToProfilePage} from '../../router/coordinator'
 
 const EditProfilePage = () => {
 
@@ -19,36 +24,47 @@ const EditProfilePage = () => {
     }
 
     return (
-        <div>
+
+        <EditProfileDiv>
+
+            <Header />
+            <ButtonStyled onClick={() => goToProfilePage(history)}><ArrowBackIosIcon/></ButtonStyled>
 
             <form onSubmit={handleSubmit}>
-                <input
+
+                <EditProfileInputDiv>
+                <EditProfileInput
                     placeholder="Escreva seu nome completo"
                     name="name"
                     value={form.name}
                     onChange={handleInput}
                 />
+                </EditProfileInputDiv>
 
-                <input
+                <EditProfileInputDiv>
+                <EditProfileInput
                     placeholder="Digite seu novo email"
                     name="email"
                     value={form.email}
                     onChange={handleInput}
 
                 />
+                </EditProfileInputDiv>
 
-                <input
+                <EditProfileInputDiv>
+                <EditProfileInput
                     placeholder="Ex: 000.000.000-00"
                     pattern="([0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2})|([0-9]{3}[\.]?[0-9]{3}[\.]?[0-9]{3}[-]?[0-9]{2})"
                     name="cpf"
                     value={form.cpf}
                     onChange={handleInput}
                 />
+                </EditProfileInputDiv>
 
-                <button type='submit'>Salvar</button>
+                <EditProfileButton type='submit'>Salvar</EditProfileButton>
             </form>
 
-        </div>
+        </EditProfileDiv>
     )
 }
 
