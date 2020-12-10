@@ -61,20 +61,6 @@ export const AddRemoveButton = styled.button `
     border-radius: 0px 0px 5px 0px;
     height: 31px;
     width: 90px;
-    /* overflow: hidden;
-    position: relative;
-    margin: 1em;
-    &:before{
-        content: '';
-        display: block;
-        background: #d33;
-        height: 31px;
-        width: 90px;
-        transform: rotate(45deg);
-        position: relative;
-        bottom: 4px;
-        left: 0px;
-    } */
     &:hover {
         cursor: pointer;
     }

@@ -11,7 +11,6 @@ const Header = (props) => {
             {history.location.pathname==='/feed'
                 ?
                 <HeaderContainer>
-                    <ButtonStyled onClick={props.goBack}><ArrowBackIosIcon/></ButtonStyled>
                     <TitleContainer>
                         <PageTitle>FutureEats</PageTitle>
                     </TitleContainer>
@@ -23,7 +22,19 @@ const Header = (props) => {
                 ?
                 <HeaderContainer>
                     <ButtonStyled onClick={props.goBack}><ArrowBackIosIcon/></ButtonStyled>
-                    <PageTitle>Restaurante</PageTitle>
+                    <TitleContainer style={{marginLeft:70}}>
+                        <PageTitle>Restaurante</PageTitle>
+                    </TitleContainer>
+                </HeaderContainer>
+                :
+                ""
+            }
+            {history.location.pathname==='/perfil'
+                ?
+                <HeaderContainer>
+                    <TitleContainer>
+                        <PageTitle>Meu Perfil</PageTitle>
+                    </TitleContainer>
                 </HeaderContainer>
                 :
                 ""

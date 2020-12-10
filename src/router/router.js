@@ -11,6 +11,7 @@ import RestaurantPage from "../screens/RestaurantPage/RestaurantPage"
 
 import ProfilePage from "../screens/profilePage/profilePage"
 import SignupPage from "../screens/signupPage/signupPage"
+import ErrorPage from "../screens/ErrorPage/ErrorPage"
 
 
 function Router(){
@@ -36,17 +37,16 @@ return(
             <RestaurantPage />
         </Route>
         <Route exact path="/perfil">
-        <ProfilePage />
+            <ProfilePage />
         </Route>
         <Route exact path="/editprofile">
             <EditProfilePage />
         </Route>
         <Route exact path="/endereco">
-        <AddressPage />
+            <AddressPage />
         </Route>
-
         <Route>
-
+            <ErrorPage />
         </Route>
     </Switch>
 </BrowserRouter>
