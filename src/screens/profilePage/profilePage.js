@@ -1,7 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { baseUrl } from "../../constants/constants";
-import GlobalStateContext from "../../global/globalStateContext";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import useRequestData from "../../hooks/useRequestData";
 import Header from "../../components/Header/Header";
@@ -13,17 +12,13 @@ import {
   goToEditProfile,
   goToFeedPage,
 } from "../../router/coordinator";
-import CardOrder from "../../components/CardOrder/cardOrder";
-import {
-  EditProfile,
-  Profile,
-  ProfileAddress,
-  ProfileAddressTitle,
-  ProfileCPF,
-  ProfileEmail,
-  ProfileEmailDiv,
-  ProfileName,
-} from "./styles";
+import Header from '../../components/Header/Header'
+import {ButtonStyled} from '../../components/Header/styles'
+import Edit from '../../assets/img/edit-profile.svg'
+import CardOrder from "../../components/CardOrder/cardOrder"
+import { EditProfile, Profile, ProfileAddress, ProfileAddressTitle, ProfileCPF, ProfileEmail, ProfileEmailDiv, ProfileName } from './styles'
+import {HistoryOrderLine, HistoryOrderTitle} from '../../components/CardOrder/styles'
+import Footer from '../../components/Footer/Footer'
 
 const ProfilePage = () => {
   useProtectedPage();
@@ -75,6 +70,7 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </Profile>
   ) : (
     <div>

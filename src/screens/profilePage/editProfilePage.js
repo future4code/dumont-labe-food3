@@ -7,6 +7,8 @@ import { EditProfileButton, EditProfileDiv, EditProfileInput, EditProfileInputDi
 import {ButtonStyled} from '../../components/Header/styles'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
 import {goToProfilePage} from '../../router/coordinator'
+import Footer from '../../components/Footer/Footer'
+
 
 const EditProfilePage = () => {
 
@@ -63,7 +65,7 @@ const EditProfilePage = () => {
 
                 <EditProfileButton type='submit'>Salvar</EditProfileButton>
             </form>
-
+            <Footer />
         </EditProfileDiv>
     )
 }
