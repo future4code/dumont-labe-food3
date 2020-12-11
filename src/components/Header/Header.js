@@ -54,7 +54,6 @@ const Header = (props) => {
             {history.location.pathname==='/editprofile'
                 ?
                 <HeaderContainer>
-                    <ButtonStyled onClick={props.goBack}><ArrowBackIosIcon/></ButtonStyled>
                     <TitleContainer style={{marginLeft:70}}>
                         <PageTitle>Editar</PageTitle>
 
@@ -64,10 +63,9 @@ const Header = (props) => {
                 ""
             }
 
-            {history.location.pathname==='/endereco'
+            {history.location.pathname==='/editaddress'
                 ?
                 <HeaderContainer>
-                    <ButtonStyled onClick={props.goBack}><ArrowBackIosIcon/></ButtonStyled>
                     <TitleContainer style={{marginLeft:70}}>
 
                         <PageTitle>Endereço</PageTitle>
