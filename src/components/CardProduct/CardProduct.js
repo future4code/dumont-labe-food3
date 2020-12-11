@@ -13,6 +13,7 @@ const CardProduct = (props) => {
             newCart.push(props.name)
             setters.setCart(newCart)
             console.log(states.cart)
+            props.showModal()
     }
 
     return (

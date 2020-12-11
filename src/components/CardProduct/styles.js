@@ -42,7 +42,7 @@ export const PriceText = styled.p `
 export const InfoName = styled.p `
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    padding: 1px;
+    padding-top: 8px;
     margin: 4px;
     color: #5cb646;
 `
@@ -88,6 +88,7 @@ export const QuantityContainer = styled.div `
     height: 33px;
     width: 33px;
     text-align: center;
+    padding-top: 8px;
 `
 export const NameContainer = styled.div `
     display: flex;
