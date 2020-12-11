@@ -1,13 +1,21 @@
+
+
 import React from "react";
+
 import { useHistory } from "react-router-dom";
 import { baseUrl } from "../../constants/constants";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import useRequestData from "../../hooks/useRequestData";
+import Header from "../../components/Header/Header";
+import { ButtonStyled } from "../../components/Header/styles";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import Edit from "../../assets/img/edit-profile.svg";
 import {
   goToEditAddress,
   goToEditProfile,
   goToFeedPage,
 } from "../../router/coordinator";
+
 import Header from '../../components/Header/Header'
 import {ButtonStyled} from '../../components/Header/styles'
 import Edit from '../../assets/img/edit-profile.svg'
@@ -16,14 +24,16 @@ import { EditProfile, Profile, ProfileAddress, ProfileAddressTitle, ProfileCPF, 
 import {HistoryOrderLine, HistoryOrderTitle} from '../../components/CardOrder/styles'
 import Footer from '../../components/Footer/Footer'
 
+
 const ProfilePage = () => {
   useProtectedPage();
-
 
   const history = useHistory();
 
   const profileInfo = useRequestData(`${baseUrl}/profile`, undefined);
-  const ordersHistory = useRequestData(`${baseUrl}/orders/history`)
+  const ordersHistory = useRequestData(`${baseUrl}/orders/history`);
+
+  
 
   return profileInfo ? (
     <Profile>
@@ -45,10 +55,11 @@ const ProfilePage = () => {
       <div>
         <div>
           <div>
-            <HistoryOrderTitle>Histórico de Pedidos</HistoryOrderTitle>
-            <HistoryOrderLine></HistoryOrderLine>
-            {ordersHistory &&
-              ordersHistory.orders.map((order, id) => {
+
+            <h3>Histórico de Pedidos</h3>
+            {ordersHistory && ordersHistory.orders.length > 0 ? (
+              ordersHistory.orders.map((order) => {
+
                 return (
                   <CardOrder
                     key={order.id}
@@ -57,7 +68,12 @@ const ProfilePage = () => {
                     date={order.createdAt}
                   />
                 );
-              })}
+              })
+            ) : (
+              <div>
+                <p>Você não realizou nenhum pedido</p>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -68,6 +84,7 @@ const ProfilePage = () => {
       <p>Carregando...</p>
     </div>
   );
+  
 };
 
 export default ProfilePage;
