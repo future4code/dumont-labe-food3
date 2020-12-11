@@ -26,8 +26,8 @@ export const goToEditProfile = (history) =>{
     history.push('/editprofile')
 }
 
-export const goToCart = (history) =>{
-    history.push('/carrinho')
+export const goToCart = (history, id) =>{
+    history.push(`/carrinho/${id}`)
 }
 
 export const goToEditAddress = (history) =>{
