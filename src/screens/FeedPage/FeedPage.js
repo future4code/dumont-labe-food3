@@ -9,14 +9,17 @@ import {
   InputContainer,
   InputStyled,
   LoadingContainer,
-  ModalContainer,
-} from "./styles";
+  ProgressContainer,
+  OrderProgress,
+  RestaurantName,
+  TotalPrice,
+  } from "./styles";
 import { baseUrl } from "../../constants/constants";
 import CardFeed from "../../components/CardFeed/CardFeed";
 import LoadingInvert from "../../components/LoadingInvert/LoadingInvert";
 import { useHistory } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import CardOrderProgress from "../../components/CardOrderProgress/cardOrderProgress";
+
 
 const FeedPage = () => {
   const history = useHistory();
@@ -25,8 +28,7 @@ const FeedPage = () => {
   const [categoryRestaurants, setCategoryRestaurants] = useState([]);
   const [searchContent, setSearchContent] = useState("");
   const [filter, setFilter] = useState("");
-  const [orderInfo, setOrderInfo] = useState({});
-  const [open, setOpen] = useState(true);
+  const [order, setOrder] = useState(null);
 
   useEffect(() => {
     getActiveOrder();
@@ -84,12 +86,8 @@ const FeedPage = () => {
         },
       })
       .then((response) => {
-        if (response.data.order === null) {
-          setOpen(false);
-        } else {
-          setOpen(true);
-          setOrderInfo(response.data.order);
-        }
+          setOrder(response.data.order)
+
       })
       .catch((err) => {
         console.log(err);
@@ -219,11 +217,13 @@ const FeedPage = () => {
 
       <Footer />
 
-      <CardOrderProgress
-        totalPrice={orderInfo.totalPrice}
-        restaurant={orderInfo.restaurantName}
-        open={open}
-      />
+      {order && (
+        <ProgressContainer>
+          <OrderProgress>Pedido em Andamento</OrderProgress>
+          <RestaurantName>{order.restaurantName}</RestaurantName>
+          <TotalPrice>SUBTOTAL: {order.totalPrice}</TotalPrice>
+        </ProgressContainer>
+      )}
     </FeedPageContainer>
   );
 };
