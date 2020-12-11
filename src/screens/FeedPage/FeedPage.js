@@ -29,7 +29,8 @@ const FeedPage = () => {
   const [open, setOpen] = useState(true);
 
   useEffect(() => {
-      getActiveOrder()
+    getActiveOrder();
+
     axios
       .get(`${baseUrl}/restaurants`, {
         headers: {
@@ -43,10 +44,6 @@ const FeedPage = () => {
         console.log(err);
       });
   }, []);
-
-  
-    
-  
 
   const SearchFilter = (e) => {
     if (filter === "") {
@@ -87,8 +84,6 @@ const FeedPage = () => {
         },
       })
       .then((response) => {
-        console.log(response);
-
         if (response.data.order === null) {
           setOpen(false);
         } else {
@@ -224,13 +219,11 @@ const FeedPage = () => {
 
       <Footer />
 
-     
-        <CardOrderProgress
-          totalPrice={orderInfo.totalPrice}
-          restaurant={orderInfo.restaurantName}
-          open={open}
-        />
-      
+      <CardOrderProgress
+        totalPrice={orderInfo.totalPrice}
+        restaurant={orderInfo.restaurantName}
+        open={open}
+      />
     </FeedPageContainer>
   );
 };
