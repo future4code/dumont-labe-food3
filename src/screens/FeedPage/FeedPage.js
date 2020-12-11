@@ -221,7 +221,7 @@ const FeedPage = () => {
         <ProgressContainer>
           <OrderProgress>Pedido em Andamento</OrderProgress>
           <RestaurantName>{order.restaurantName}</RestaurantName>
-          <TotalPrice>SUBTOTAL: {order.totalPrice}</TotalPrice>
+          <TotalPrice>SUBTOTAL: R$ {order.totalPrice}</TotalPrice>
         </ProgressContainer>
       )}
     </FeedPageContainer>
