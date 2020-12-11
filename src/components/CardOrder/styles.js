@@ -70,3 +70,25 @@ export const HistoryOrderLine = styled.hr`
   margin: 0 0 7px;
   border: solid 1px #000000;
 `
+
+export const HistoryOrderZero = styled.div`
+  width: 360px;
+  height: 42px;
+  margin: 16px 0 248px;
+  padding: 12px 32px;
+`
+
+export const HistoryOrderZeroInside = styled.p`
+width: 296px;
+  height: 18px;
+  opacity: 0.89;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.39px;
+  text-align: center;
+  color: #000000;
+`

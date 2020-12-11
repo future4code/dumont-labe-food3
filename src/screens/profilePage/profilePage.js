@@ -1,19 +1,8 @@
-<<<<<<< HEAD
 import React from "react";
-=======
-
-
-import React from "react";
-
->>>>>>> 6d7f18dba2e4dc9df9eef3c6ee77dead82dd2abb
 import { useHistory } from "react-router-dom";
 import { baseUrl } from "../../constants/constants";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import useRequestData from "../../hooks/useRequestData";
-import Header from "../../components/Header/Header";
-import { ButtonStyled } from "../../components/Header/styles";
-import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import Edit from "../../assets/img/edit-profile.svg";
 import {
   goToEditAddress,
   goToEditProfile,
@@ -24,7 +13,7 @@ import {ButtonStyled} from '../../components/Header/styles'
 import Edit from '../../assets/img/edit-profile.svg'
 import CardOrder from "../../components/CardOrder/cardOrder"
 import { EditProfile, Profile, ProfileAddress, ProfileAddressTitle, ProfileCPF, ProfileEmail, ProfileEmailDiv, ProfileName } from './styles'
-import {HistoryOrderLine, HistoryOrderTitle} from '../../components/CardOrder/styles'
+import {HistoryOrderLine, HistoryOrderTitle, HistoryOrderZero, HistoryOrderZeroInside} from '../../components/CardOrder/styles'
 import Footer from '../../components/Footer/Footer'
 
 const ProfilePage = () => {
@@ -70,9 +59,9 @@ const ProfilePage = () => {
                 );
               })
             ) : (
-              <div>
-                <p>Você não realizou nenhum pedido</p>
-              </div>
+              <HistoryOrderZero>
+                <HistoryOrderZeroInside>Você não realizou nenhum pedido</HistoryOrderZeroInside>
+              </HistoryOrderZero>
             )}
           </div>
         </div>
