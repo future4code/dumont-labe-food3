@@ -1,7 +1,11 @@
+<<<<<<< HEAD
+import React from "react";
+=======
 
 
 import React from "react";
 
+>>>>>>> 6d7f18dba2e4dc9df9eef3c6ee77dead82dd2abb
 import { useHistory } from "react-router-dom";
 import { baseUrl } from "../../constants/constants";
 import useProtectedPage from "../../hooks/useProtectedPage";
@@ -15,7 +19,6 @@ import {
   goToEditProfile,
   goToFeedPage,
 } from "../../router/coordinator";
-
 import Header from '../../components/Header/Header'
 import {ButtonStyled} from '../../components/Header/styles'
 import Edit from '../../assets/img/edit-profile.svg'
@@ -23,7 +26,6 @@ import CardOrder from "../../components/CardOrder/cardOrder"
 import { EditProfile, Profile, ProfileAddress, ProfileAddressTitle, ProfileCPF, ProfileEmail, ProfileEmailDiv, ProfileName } from './styles'
 import {HistoryOrderLine, HistoryOrderTitle} from '../../components/CardOrder/styles'
 import Footer from '../../components/Footer/Footer'
-
 
 const ProfilePage = () => {
   useProtectedPage();
@@ -55,11 +57,9 @@ const ProfilePage = () => {
       <div>
         <div>
           <div>
-
             <h3>Histórico de Pedidos</h3>
             {ordersHistory && ordersHistory.orders.length > 0 ? (
               ordersHistory.orders.map((order) => {
-
                 return (
                   <CardOrder
                     key={order.id}
