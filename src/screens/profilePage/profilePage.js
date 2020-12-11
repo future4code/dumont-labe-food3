@@ -46,7 +46,8 @@ const ProfilePage = () => {
       <div>
         <div>
           <div>
-            <h3>Histórico de Pedidos</h3>
+            <HistoryOrderTitle>Histórico de Pedidos</HistoryOrderTitle>
+            <HistoryOrderLine></HistoryOrderLine>
             {ordersHistory && ordersHistory.orders.length > 0 ? (
               ordersHistory.orders.map((order) => {
                 return (
