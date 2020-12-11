@@ -92,7 +92,7 @@ const RestaurantPage = () => {
                             />
                         )
                         })
-                    }<button onClick={goToCartPage}>ir para o carrinho</button>
+                    }
                 </CardsContainer>
             }
             <ModalBackground id="modalBack">

@@ -9,8 +9,6 @@ const GlobalState = (props) =>{
     const states = {restaurante,cart,profile}
     const setters = {setRestaurante,setCart,setProfile}
   
-
-
     const data = {states,setters}
 
     return(

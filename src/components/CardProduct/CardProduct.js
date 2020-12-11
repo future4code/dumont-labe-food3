@@ -13,7 +13,7 @@ const CardProduct = (props) => {
             newCart.push(props)
             setters.setCart(newCart)
             props.showModal()
-
+            setters.setRestaurante(props.restaurant)
     }
 
     return (
