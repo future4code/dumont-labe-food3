@@ -10,10 +10,10 @@ const CardProduct = (props) => {
 
     const saveOrder =(props) =>{
             let newCart = [...states.cart]
-            newCart.push(props.name)
+            newCart.push(props)
             setters.setCart(newCart)
-            console.log(states.cart)
             props.showModal()
+
     }
 
     return (

@@ -1,4 +1,4 @@
-import Axios from 'axios'
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import CardProduct from '../../components/CardProduct/CardProduct'
@@ -13,7 +13,7 @@ const RestaurantPage = () => {
     const [restaurantDetails, setRestaurantDetails] = useState([])
 
     useEffect(()=> {
-        Axios.get(`${baseUrl}/restaurants/${params.id}`,
+        axios.get(`${baseUrl}/restaurants/${params.id}`,
         {
             headers:{
                 auth: localStorage.getItem("token")
@@ -42,6 +42,10 @@ const RestaurantPage = () => {
     function hideModal() {
         modalBack.style.display = "none";
         modalContent.style.display = "none";
+    }
+
+    const goToCartPage =() =>{
+       history.push(`/carrinho/${params.id}`)
     }
 
     return (
@@ -78,7 +82,7 @@ const RestaurantPage = () => {
                             />
                         )
                         })
-                    }
+                    }<button onClick={goToCartPage}>ir para o carrinho</button>
                 </CardsContainer>
             }
             <ModalBackground id="modalBack">
