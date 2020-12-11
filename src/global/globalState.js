@@ -9,6 +9,7 @@ const GlobalState = (props) =>{
 
     const states = {restaurante,cart,profile,idProduct}
     const setters = {setRestaurante,setCart,setProfile,setIdProduct}
+
   
     const data = {states,setters}
 
