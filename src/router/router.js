@@ -28,8 +28,11 @@ return(
         <Route exact path="/feed">
             <FeedPage />
         </Route>
-        <Route exact path="/carrinho">
-            <CartPage />
+
+        <Route exact path="/carrinho/:id">
+        <CartPage/>
+
+    
         </Route>
         <Route exact path="/restaurantes/:id">
             <RestaurantPage />
