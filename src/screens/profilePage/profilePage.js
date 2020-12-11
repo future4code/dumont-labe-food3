@@ -4,19 +4,23 @@ import { baseUrl } from "../../constants/constants";
 import GlobalStateContext from "../../global/globalStateContext";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import useRequestData from "../../hooks/useRequestData";
-
 import {
   goToAdressPage,
   goToEditProfile,
   goToFeedPage,
 } from "../../router/coordinator";
-
+import Header from '../../components/Header/Header'
+import {ButtonStyled} from '../../components/Header/styles'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
+import Edit from '../../assets/img/edit-profile.svg'
+import { goToEditAddress, goToEditProfile, goToFeedPage } from '../../router/coordinator'
+import CardOrder from "../../components/CardOrder/cardOrder"
+import { EditProfile, Profile, ProfileAddress, ProfileAddressTitle, ProfileCPF, ProfileEmail, ProfileEmailDiv, ProfileName } from './styles'
 import CardOrder from "../../components/CardOrder/cardOrder";
 
 const ProfilePage = () => {
   useProtectedPage();
 
-  const { states, setters } = useContext(GlobalStateContext);
 
   const history = useHistory();
 
@@ -24,20 +28,21 @@ const ProfilePage = () => {
   const ordersHistory = useRequestData(`${baseUrl}/orders/history`)
 
   return profileInfo ? (
-    <div>
-      <button onClick={() => goToFeedPage(history)}>Voltar</button>
+    <Profile>
+      <Header />
+      <ButtonStyled onClick={() => goToFeedPage(history)}>Voltar</ButtonStyled>
       <div>
-        <p>Nome: {profileInfo.user.name}</p>
-        <p>Email: {profileInfo.user.email}</p>
-        <p>CPF: {profileInfo.user.cpf}</p>
-        <button onClick={() => goToEditProfile(history)}>Editar</button>
+        <ProfileName>Nome: {profileInfo.user.name}</ProfileName>
+        <ProfileEmail>Email: {profileInfo.user.email}</ProfileEmail>
+        <ProfileCPF>CPF: {profileInfo.user.cpf}</ProfileCPF>
+        <EditProfile src={Edit} onClick={() => goToEditProfile(history)} />
       </div>
 
-      <div>
-        <h4>Endereço cadastrado:</h4>
-        <p>{profileInfo.user.address}</p>
-        <button onClick={() => goToAdressPage(history)}>Editar</button>
-      </div>
+      <ProfileEmailDiv>
+        <ProfileAddressTitle>Endereço cadastrado:</ProfileAddressTitle>
+        <ProfileAddress>{profileInfo.user.address}</ProfileAddress>
+        <EditProfile src={Edit} onClick={() => goToEditAddress(history)} />
+      </ProfileEmailDiv>
 
       <div>
         <div>
@@ -57,7 +62,7 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </Profile>
   ) : (
     <div>
       <p>Você não realizou nenhum pedido</p>

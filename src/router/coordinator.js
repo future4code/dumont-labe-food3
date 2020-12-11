@@ -29,3 +29,7 @@ export const goToEditProfile = (history) =>{
 export const goToCart = (history) =>{
     history.push('/carrinho')
 }
+
+export const goToEditAddress = (history) =>{
+    history.push('/editaddress')
+}

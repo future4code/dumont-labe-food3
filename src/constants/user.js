@@ -65,6 +65,26 @@ export const Address = (body, history) => {
 
 }
 
+export const EditAddress = (body, history) => {
+
+  axios
+  .put(`${baseUrl}/address`, body, axiosConfig)
+
+  .then ((response)=>{
+    localStorage.setItem('token', response.data.token)
+    alert("Endereço atualizado com sucesso!")
+    goToProfilePage(history)
+
+  })
+
+  .catch((error)=>{
+    alert("Deu ruim rapá!")
+    console.log(error)
+  })
+
+
+}
+
 
 export const UpdateProfile = (body, history) => {
 
