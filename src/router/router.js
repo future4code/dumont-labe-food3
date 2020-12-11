@@ -10,6 +10,7 @@ import ProfilePage from "../screens/profilePage/profilePage"
 import SignupPage from "../screens/signupPage/signupPage"
 import ErrorPage from "../screens/ErrorPage/ErrorPage"
 import CartPage from "../screens/cartPage/cartPage"
+import EditAddressPage from '../screens/profilePage/editAddressPage'
 
 function Router(){
 return(
@@ -27,8 +28,11 @@ return(
         <Route exact path="/feed">
             <FeedPage />
         </Route>
+
         <Route exact path="/carrinho/:id">
         <CartPage/>
+
+    
         </Route>
         <Route exact path="/restaurantes/:id">
             <RestaurantPage />
@@ -41,6 +45,9 @@ return(
         </Route>
         <Route exact path="/endereco">
             <AddressPage />
+        </Route>
+        <Route exact path ='/editaddress'>
+            <EditAddressPage />
         </Route>
         <Route>
             <ErrorPage />

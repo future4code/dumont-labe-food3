@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
-import { CardsContainer, FeedPageContainer, Filter, FilterContainer, InputContainer, InputStyled, LoadingContainer } from './styles'
+import { CardsContainer, FeedPageContainer, Filter, FilterContainer, InputContainer, InputStyled, LoadingContainer, ModalContainer } from './styles'
 import { baseUrl } from '../../constants/constants'
 import CardFeed from '../../components/CardFeed/CardFeed'
 import LoadingInvert from '../../components/LoadingInvert/LoadingInvert'
@@ -150,6 +150,7 @@ const FeedPage = () => {
                                 })}
                                 </div>
                         }
+
                     </CardsContainer>
                 </div>
                 <Footer />

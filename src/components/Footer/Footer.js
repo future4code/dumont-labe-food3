@@ -21,13 +21,13 @@ const Footer = (props) => {
                     <HomeOutlinedIcon />
                 </ButtonStyled>
             }
-            {history.location.pathname==='/cart'
+            {history.location.pathname==='/carrinho'
                 ?
                 <ButtonStyled onClick={()=>goToCart(history)}>
                     <ShoppingCartOutlinedIcon style={{color:'#5cb646'}}/>
                 </ButtonStyled>
                 :
-                <ButtonStyled>
+                <ButtonStyled onClick={()=>goToCart(history)}>
                     <ShoppingCartOutlinedIcon />
                 </ButtonStyled>
             }

@@ -50,3 +50,41 @@ export const CardsContainer = styled.div `
     margin-top: 40px;
     overflow: auto;
 `
+export const ModalBackground = styled.div `
+    display: none;
+    background-color: #b8b8b8;
+    opacity: 0.7;
+    height: 640px;
+    width: 360px;
+    position: fixed;
+`
+export const ModalContainer = styled.div `
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    justify-content: space-around;
+    border: 1px #b8b8b8 solid;
+    border-radius: 5px;
+    align-items: center;
+    background-color: white;
+    width: 328px;
+    height: 216px;
+`
+export const ModalButton = styled.button `
+    color: #5cb646;
+    background-color: transparent;
+    border: none;
+    align-self: right;
+    &:hover {
+        cursor: pointer;
+    }
+`
+export const ModalButtonContainer = styled.div `
+    margin-left: auto;
+    margin-right: 10px;
+`
+export const SelectStyled = styled.select `
+    height: 56px;
+    width: 296px;
+    padding: 16px;
+`

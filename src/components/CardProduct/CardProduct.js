@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { InfoContainer, ImageRestaurant, CardStyled, InfoText, InfoName, ImageContainer, TextContainer, PriceText, DescriptionContainer } from './styles'
+import { InfoContainer, ImageRestaurant, CardStyled, InfoText, InfoName, ImageContainer, TextContainer, PriceText, DescriptionContainer, AddButton, QuantityContainer, NameContainer, RemoveButton } from './styles'
 import GlobalStateContex from "../../global/globalStateContext"
 
 
@@ -12,6 +12,7 @@ const CardProduct = (props) => {
             let newCart = [...states.cart]
             newCart.push(props)
             setters.setCart(newCart)
+            props.showModal()
 
     }
 
@@ -22,12 +23,16 @@ const CardProduct = (props) => {
                 </ImageContainer>
                 <TextContainer>
                     <DescriptionContainer>
-                        <InfoName>{props.name}</InfoName>
+                        <NameContainer>
+                            <InfoName>{props.name}</InfoName>
+                            <QuantityContainer>2</QuantityContainer>
+                        </NameContainer>
                         <InfoText>{props.description}</InfoText>
                     </DescriptionContainer>
                     <InfoContainer>
                             <PriceText>{props.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </PriceText>
-                            <button onClick={()=>saveOrder(props)}>adicionar</button>
+                            <AddButton onClick={()=>saveOrder(props)}>adicionar</AddButton>
+                            {/* <RemoveButton>remover</RemoveButton> */}
                     </InfoContainer>
                 </TextContainer>
             </CardStyled>
