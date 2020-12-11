@@ -6,12 +6,12 @@ import Header from '../../components/Header/Header'
 import { baseUrl } from '../../constants/constants'
 import { RestaurantPageContainer, ImageRestaurant, RestaurantContainer, InfoContainer, InfoName, InfoText, ImageContainer, LoadingContainer, CardsContainer, ModalContainer, ModalButton, ModalButtonContainer, SelectStyled, ModalBackground, FormStyled } from './styles'
 import LoadingInvert from '../../components/LoadingInvert/LoadingInvert'
-import { useForm } from '../../hooks/useForm'
+import { useFormModal } from '../../hooks/useFormModal'
 
 const RestaurantPage = () => {
     const history = useHistory()
     const params = useParams()
-    const {form, onChange, resetState} = useForm({ quantity: "" , id: "" })
+    const {form, onChange, resetState} = useFormModal({ quantity: "" , id: "" })
     const [restaurantDetails, setRestaurantDetails] = useState([])
 
     const handleInputChange = (event) => {
@@ -52,10 +52,7 @@ const RestaurantPage = () => {
         modalContent.style.display = "none";
     }
 
-    const goToCartPage =() =>{
-       history.push(`/carrinho/${params.id}`)
-    }
-
+console.log(form)
 
     return (
         <RestaurantPageContainer>
@@ -101,6 +98,7 @@ const RestaurantPage = () => {
                     <p>Selecione a quantidade desejada</p>
                     <FormStyled onSubmit={hideModal}>
                     <SelectStyled name="quantity" id="quantity" onChange={handleInputChange}>
+                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
