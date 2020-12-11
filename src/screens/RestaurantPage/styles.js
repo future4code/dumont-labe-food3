@@ -50,3 +50,4 @@ export const CardsContainer = styled.div `
     margin-top: 40px;
     overflow: auto;
 `
+

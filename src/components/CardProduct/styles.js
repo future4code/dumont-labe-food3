@@ -87,6 +87,7 @@ export const QuantityContainer = styled.div `
     border-radius: 0px 5px 0px 5px;
     height: 33px;
     width: 33px;
+    text-align: center;
 `
 export const NameContainer = styled.div `
     display: flex;

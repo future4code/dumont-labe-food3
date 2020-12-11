@@ -41,22 +41,33 @@ const Header = (props) => {
                 ""
             }
 
-            {history.location.pathname === '/editprofile'
+            {history.location.pathname==='/carrinho'
                 ?
                 <HeaderContainer>
                     <TitleContainer>
+                        <PageTitle>Meu Carrinho</PageTitle>
+                    </TitleContainer>
+                </HeaderContainer>
+                :
+                ""
+            }
+            {history.location.pathname==='/editprofile'
+                ?
+                <HeaderContainer>
+                    <TitleContainer style={{marginLeft:70}}>
                         <PageTitle>Editar</PageTitle>
-                        
+
                     </TitleContainer>
                 </HeaderContainer>
                 :
                 ""
             }
 
-            {history.location.pathname === '/editaddress'
+            {history.location.pathname==='/editaddress'
                 ?
                 <HeaderContainer>
-                    <TitleContainer>
+                    <TitleContainer style={{marginLeft:70}}>
+
                         <PageTitle>Endereço</PageTitle>
                     </TitleContainer>
                 </HeaderContainer>

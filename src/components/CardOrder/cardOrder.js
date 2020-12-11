@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { HistoryOrderDate, HistoryOrderDiv, HistoryOrderRestaurant, HistoryOrderTotal } from "./styles";
 
 
 const CardOrder = (props) => {
@@ -9,11 +10,12 @@ const CardOrder = (props) => {
   
 
   return (
-    <div>
-      <p>{props.restaurantName}</p>
-      <p>{formatDate}</p>
-      <h4>SUBTOTAL R${props.totalPrice}</h4>
-    </div>
+    
+      <HistoryOrderDiv>
+      <HistoryOrderRestaurant>{props.restaurantName}</HistoryOrderRestaurant>
+      <HistoryOrderDate>{formatDate}</HistoryOrderDate>
+      <HistoryOrderTotal>SUBTOTAL R${props.totalPrice}</HistoryOrderTotal>
+      </HistoryOrderDiv>
   );
 };
 
