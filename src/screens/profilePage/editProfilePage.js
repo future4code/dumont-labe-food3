@@ -30,7 +30,6 @@ const EditProfilePage = () => {
         <EditProfileDiv>
 
             <Header />
-            <ButtonStyled onClick={() => goToProfilePage(history)}><ArrowBackIosIcon/></ButtonStyled>
 
             <form onSubmit={handleSubmit}>
 

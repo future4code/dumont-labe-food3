@@ -34,7 +34,7 @@ const EditAddressPage = () => {
         <StyledAddress>
 
            <Header />
-           <ButtonStyled onClick={() => goToProfilePage(history)}><ArrowBackIosIcon/></ButtonStyled>
+           {/* <ButtonStyled onClick={() => goToProfilePage(history)}><ArrowBackIosIcon/></ButtonStyled> */}
 
             <form onSubmit={handleSubmit}>
 
