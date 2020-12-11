@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { InfoContainer, ImageRestaurant, CardStyled, InfoText, InfoName, ImageContainer, TextContainer, PriceText, DescriptionContainer, AddButton, QuantityContainer, NameContainer, RemoveButton } from './styles'
-import GlobalStateContex from "../../global/globalStateContext"
+import GlobalStateContext from "../../global/globalStateContext"
 
 
 const CardProduct = (props) => {
     const history = useHistory()
-    const {states,setters} =useContext(GlobalStateContex)
+    const {states,setters} =useContext(GlobalStateContext)
 
     const saveOrder =(props) =>{
             let newCart = [...states.cart]
@@ -14,6 +14,7 @@ const CardProduct = (props) => {
             setters.setCart(newCart)
             props.showModal()
             setters.setRestaurante(props.restaurant)
+            setters.setIdProduct(props.id)
     }
 
     return (
@@ -31,8 +32,18 @@ const CardProduct = (props) => {
                     </DescriptionContainer>
                     <InfoContainer>
                             <PriceText>{props.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </PriceText>
+                            {/* {states.cart.map(product =>{
+                                if (props.id === product.id) {
+                                    return (
+                                        <RemoveButton id="removeButton">remover</RemoveButton>
+                                    )
+                                } else {
+                                    return (
+                                        <AddButton id="addButton" onClick={()=>saveOrder(props)}>adicionar</AddButton>
+                                    )   
+                                }
+                            })} */}
                             <AddButton id="addButton" onClick={()=>saveOrder(props)}>adicionar</AddButton>
-                            {/* <RemoveButton id="removeButton">remover</RemoveButton> */}
                     </InfoContainer>
                 </TextContainer>
             </CardStyled>
