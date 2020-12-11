@@ -1,4 +1,4 @@
-import Axios from 'axios'
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
 import { CardsContainer, FeedPageContainer, Filter, FilterContainer, InputContainer, InputStyled, LoadingContainer } from './styles'
@@ -18,7 +18,7 @@ const FeedPage = () => {
     const [filter,setFilter] = useState("")
 
     useEffect(()=> {
-        Axios.get(`${baseUrl}/restaurants`,
+        axios.get(`${baseUrl}/restaurants`,
         {
             headers:{
                 auth: localStorage.getItem("token")

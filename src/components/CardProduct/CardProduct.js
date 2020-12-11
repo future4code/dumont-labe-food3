@@ -10,12 +10,11 @@ const CardProduct = (props) => {
 
     const saveOrder =(props) =>{
             let newCart = [...states.cart]
-            newCart.push(props.name)
+            newCart.push(props)
             setters.setCart(newCart)
-            console.log(states.cart)
-            history.push("/cart")
+
     }
-    console.log(states.cart)
+
     return (
             <CardStyled>
                 <ImageContainer>
