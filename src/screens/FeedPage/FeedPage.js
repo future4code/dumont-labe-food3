@@ -25,7 +25,6 @@ const FeedPage = () => {
             }
         })
         .then((res)=>{
-            console.log(res.data.restaurants)
             setRestaurants(res.data.restaurants)
         })
         .catch((err)=>{

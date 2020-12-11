@@ -75,6 +75,9 @@ export const ModalButton = styled.button `
     background-color: transparent;
     border: none;
     align-self: right;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-bottom: 20px;
     &:hover {
         cursor: pointer;
     }
@@ -87,4 +90,8 @@ export const SelectStyled = styled.select `
     height: 56px;
     width: 296px;
     padding: 16px;
+`
+export const FormStyled = styled.form `
+    display: flex;
+    flex-direction: column;
 `

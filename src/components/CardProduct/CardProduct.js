@@ -31,8 +31,8 @@ const CardProduct = (props) => {
                     </DescriptionContainer>
                     <InfoContainer>
                             <PriceText>{props.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </PriceText>
-                            <AddButton onClick={()=>saveOrder(props)}>adicionar</AddButton>
-                            {/* <RemoveButton>remover</RemoveButton> */}
+                            <AddButton id="addButton" onClick={()=>saveOrder(props)}>adicionar</AddButton>
+                            {/* <RemoveButton id="removeButton">remover</RemoveButton> */}
                     </InfoContainer>
                 </TextContainer>
             </CardStyled>

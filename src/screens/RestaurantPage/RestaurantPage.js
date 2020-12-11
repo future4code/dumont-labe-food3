@@ -4,13 +4,20 @@ import { useHistory, useParams } from 'react-router-dom'
 import CardProduct from '../../components/CardProduct/CardProduct'
 import Header from '../../components/Header/Header'
 import { baseUrl } from '../../constants/constants'
-import { RestaurantPageContainer, ImageRestaurant, RestaurantContainer, InfoContainer, InfoName, InfoText, ImageContainer, LoadingContainer, CardsContainer, ModalContainer, ModalButton, ModalButtonContainer, SelectStyled, ModalBackground } from './styles'
+import { RestaurantPageContainer, ImageRestaurant, RestaurantContainer, InfoContainer, InfoName, InfoText, ImageContainer, LoadingContainer, CardsContainer, ModalContainer, ModalButton, ModalButtonContainer, SelectStyled, ModalBackground, FormStyled } from './styles'
 import LoadingInvert from '../../components/LoadingInvert/LoadingInvert'
+import { useForm } from '../../hooks/useForm'
 
 const RestaurantPage = () => {
     const history = useHistory()
     const params = useParams()
+    const {form, onChange, resetState} = useForm({ quantity: "" , id: "" })
     const [restaurantDetails, setRestaurantDetails] = useState([])
+
+    const handleInputChange = (event) => {
+        const { value, name } = event.target
+        onChange(value, name)
+    }
 
     useEffect(()=> {
         axios.get(`${baseUrl}/restaurants/${params.id}`,
@@ -39,7 +46,8 @@ const RestaurantPage = () => {
         modalContent.style.display = "flex";
     }
 
-    function hideModal() {
+    function hideModal(event) {
+        event.preventDefault()
         modalBack.style.display = "none";
         modalContent.style.display = "none";
     }
@@ -47,6 +55,7 @@ const RestaurantPage = () => {
     const goToCartPage =() =>{
        history.push(`/carrinho/${params.id}`)
     }
+
 
     return (
         <RestaurantPageContainer>
@@ -79,6 +88,7 @@ const RestaurantPage = () => {
                                 description={product.description}
                                 price={product.price}
                                 showModal={showModal}
+                                restaurant={restaurantDetails.id}
                             />
                         )
                         })
@@ -89,8 +99,8 @@ const RestaurantPage = () => {
             </ModalBackground>
                 <ModalContainer id="modalContent">
                     <p>Selecione a quantidade desejada</p>
-                    <SelectStyled name="quantity" id="quantity">
-                        <option value="0" selected="selected">0</option>
+                    <FormStyled onSubmit={hideModal}>
+                    <SelectStyled name="quantity" id="quantity" onChange={handleInputChange}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -102,9 +112,8 @@ const RestaurantPage = () => {
                         <option value="9">9</option>
                         <option value="10">10</option>
                     </SelectStyled>
-                    <ModalButtonContainer>
-                        <ModalButton onClick={hideModal}>ADICIONAR AO CARRINHO</ModalButton>
-                    </ModalButtonContainer>
+                    <ModalButton>ADICIONAR AO CARRINHO</ModalButton>
+                    </FormStyled>
                 </ModalContainer>
         </RestaurantPageContainer>
     )
