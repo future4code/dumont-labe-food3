@@ -9,6 +9,7 @@ import Header from '../../components/Header/Header'
 import {goToProfilePage} from '../../router/coordinator'
 import {ButtonStyled} from '../../components/Header/styles'
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos'
+import Footer from '../../components/Footer/Footer'
 
 
 
@@ -105,7 +106,6 @@ const EditAddressPage = () => {
 
                 <InputButton type="submit">Salvar</InputButton>
             </form>
-
         </StyledAddress>
     )
 }
