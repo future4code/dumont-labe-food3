@@ -5,7 +5,6 @@ import useProtectedPage from "../../hooks/useProtectedPage"
 import styled from "styled-components"
 import { useParams } from "react-router-dom"
 import CardProduct from "../../components/CardProduct/CardProduct"
-import Footer from "../../components/Footer/Footer"
 
 
    const CartContainer = styled.div `
@@ -45,19 +44,20 @@ const CartPage = () =>{
      },[])
 
      const placeOrder = () =>{
-    axios.post(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/${params.id}/order`,
+    axios.post(`https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/restaurants/${params.id}/order`,{
+        products:states.orderBody,
+        paymentMethod:payment
+    },
     {headers:{
-        auth:localStorage.getItem("token")}},{
-            products:states.cart.id,
-            paymentMethod:payment
-        })
+        auth:localStorage.getItem("token")}})
      }
 
        const handleOption = (event) =>{
            setPayment(event.target.value)
        }
-
-       console.log(states.cart)
+console.log(payment)
+console.log(states.orderBody)
+ 
 
       
       return(
@@ -82,13 +82,11 @@ const CartPage = () =>{
            <P>Preço:R${(states.cart.reduce((a,v) =>  a = a + v.price , 0 ))}</P>
            <select onChange={handleOption}>
             <option>Selecione forma de pagamento</option>
-            <option value="cartão">cartão</option>
+            <option value="creditcard">cartão</option>
             <option value="dinheiro">dinheiro</option>
            </select>
         <Button onClick={placeOrder}>finalizar compra</Button>
-        <Footer />
         </CartContainer>
-        
       )          
 }
 export default CartPage

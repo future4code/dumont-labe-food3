@@ -1,24 +1,26 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import CardProduct from '../../components/CardProduct/CardProduct'
 import Header from '../../components/Header/Header'
 import { baseUrl } from '../../constants/constants'
 import { RestaurantPageContainer, ImageRestaurant, RestaurantContainer, InfoContainer, InfoName, InfoText, ImageContainer, LoadingContainer, CardsContainer, ModalContainer, ModalButton, ModalButtonContainer, SelectStyled, ModalBackground, FormStyled } from './styles'
 import LoadingInvert from '../../components/LoadingInvert/LoadingInvert'
-import { useFormModal } from '../../hooks/useFormModal'
+import { useForm } from '../../hooks/useForm'
+import GlobalStateContext from "../../global/globalStateContext"
 
 const RestaurantPage = () => {
     const history = useHistory()
     const params = useParams()
-    const {form, onChange, resetState} = useFormModal({ quantity: "" , id: "" })
+    const {form, onChange, resetState} = useForm({ quantity: "" , id: "" })
     const [restaurantDetails, setRestaurantDetails] = useState([])
+    const {states,setters} = useContext(GlobalStateContext)
 
     const handleInputChange = (event) => {
         const { value, name } = event.target
         onChange(value, name)
     }
-
+    
     useEffect(()=> {
         axios.get(`${baseUrl}/restaurants/${params.id}`,
         {
@@ -50,9 +52,15 @@ const RestaurantPage = () => {
         event.preventDefault()
         modalBack.style.display = "none";
         modalContent.style.display = "none";
+        setters.setOrderBody(orderBody=>[...orderBody,{quantity:Number(form.quantity),
+                   id:states.idProduct}])
     }
 
-console.log(form)
+    const goToCartPage =() =>{
+       history.push(`/carrinho/${params.id}`)
+    }
+
+   
 
     return (
         <RestaurantPageContainer>
@@ -98,7 +106,6 @@ console.log(form)
                     <p>Selecione a quantidade desejada</p>
                     <FormStyled onSubmit={hideModal}>
                     <SelectStyled name="quantity" id="quantity" onChange={handleInputChange}>
-                        <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
