@@ -17,6 +17,20 @@ const CardProduct = (props) => {
             setters.setIdProduct(props.id)
     }
 
+    const replaceButton = () => {
+        const index = states.orderBody.findIndex((i) => i.id === props.id)
+        if (index === -1) {
+          return (
+            <AddButton onClick={()=>saveOrder(props)}>adicionar</AddButton>
+          )
+          
+        } else {
+          return (
+            <RemoveButton>remover</RemoveButton>
+          )
+        }
+    }
+
     return (
             <CardStyled>
                 <ImageContainer>
@@ -26,24 +40,30 @@ const CardProduct = (props) => {
                     <DescriptionContainer>
                         <NameContainer>
                             <InfoName>{props.name}</InfoName>
-                            <QuantityContainer>2</QuantityContainer>
+                            {states.orderBody.map(product =>{
+                                if (props.id === product.id) {
+                                    return (
+                                        <QuantityContainer>
+                                            {product.quantity}
+                                        </QuantityContainer>
+                                    )
+                                } else {
+                                    return (
+                                        ""
+                                    )   
+                                }
+                            })}
                         </NameContainer>
                         <InfoText>{props.description}</InfoText>
                     </DescriptionContainer>
                     <InfoContainer>
                             <PriceText>{props.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} </PriceText>
-                            {/* {states.cart.map(product =>{
-                                if (props.id === product.id) {
-                                    return (
-                                        <RemoveButton id="removeButton">remover</RemoveButton>
-                                    )
-                                } else {
-                                    return (
-                                        <AddButton id="addButton" onClick={()=>saveOrder(props)}>adicionar</AddButton>
-                                    )   
-                                }
-                            })} */}
-                            <AddButton id="addButton" onClick={()=>saveOrder(props)}>adicionar</AddButton>
+                            {states.orderBody.length===0
+                                ?
+                                <AddButton onClick={()=>saveOrder(props)}>adicionar</AddButton>
+                                :
+                                replaceButton()            
+                            }
                     </InfoContainer>
                 </TextContainer>
             </CardStyled>
