@@ -5,7 +5,7 @@ import useProtectedPage from "../../hooks/useProtectedPage"
 import styled from "styled-components"
 import { useParams } from "react-router-dom"
 import CardProduct from "../../components/CardProduct/CardProduct"
-
+import Footer from "../../components/Footer/Footer";
 
    const CartContainer = styled.div `
     display: flex;
@@ -86,6 +86,7 @@ console.log(states.orderBody)
             <option value="dinheiro">dinheiro</option>
            </select>
         <Button onClick={placeOrder}>finalizar compra</Button>
+        <Footer />
         </CartContainer>
       )          
 }

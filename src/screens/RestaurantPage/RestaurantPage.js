@@ -59,9 +59,8 @@ const RestaurantPage = () => {
     const goToCartPage =() =>{
        history.push(`/carrinho/${params.id}`)
     }
-
-   
-
+  
+console.log(states.orderBody)
     return (
         <RestaurantPageContainer>
             <Header goBack={goBack}/>
@@ -106,6 +105,7 @@ const RestaurantPage = () => {
                     <p>Selecione a quantidade desejada</p>
                     <FormStyled onSubmit={hideModal}>
                     <SelectStyled name="quantity" id="quantity" onChange={handleInputChange}>
+                        <option value="0">Selecione um número</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

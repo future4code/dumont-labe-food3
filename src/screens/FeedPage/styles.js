@@ -6,8 +6,10 @@ export const FeedPageContainer = styled.div `
     align-items: center;
     margin: auto;
     padding: 0;
-    width: 360px;
-    height: 640px;
+    width: 100vw;
+    height: 100vh;
+    max-width: 360px;
+    max-height: 640px;
     border: 1px black solid;
 `
 export const CardsContainer = styled.div `
