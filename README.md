@@ -14,7 +14,7 @@
 - Editar Perfil / Endereço
 - Lista de Restaurantes com busca/filtros
 - Lista de produtos por restaurante com opção de adicionar a quantidade desejada ao carrinho
-- Carrinho com endereço de entrega e valor total
+- Carrinho com produtos, endereço de entrega e valor total do pedido
 - Perfil do usuário com histórico de pedidos
 - Aviso de pedido em andamento
 
