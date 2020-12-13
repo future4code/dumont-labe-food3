@@ -7,13 +7,21 @@
 - Rafael Fontes
 
 ### O que funciona
-- DESCREVA O QUE FUNCIONA NO SEU PROJETO
+- Tela inicial
+- Login
+- Signup
+- Cadastro
+- Editar Perfil / Endereço
+- Lista de Restaurantes com busca/filtros
+- Lista de produtos por restaurante com opção de adicionar a quantidade desejada ao carrinho
+- Carrinho com endereço de entrega e valor total
+- Perfil do usuário com histórico de pedidos
+- Aviso de pedido em andamento
 
 ### O que não funciona
-- DESCREVA O QUE NÃO FUNCIONA NO SEU PROJETO
+- Remover produto do carrinho
+- Responsividade
 
 ### Link Surge 
 http://dumont-labe-food3.surge.sh/
 
-### Imagens
-TIRE PRINTS DAS TELAS DO SEU SITE E COLE AQUI
